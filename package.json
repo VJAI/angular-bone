@@ -1,12 +1,5 @@
 {
-  "name": "angular-bone",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "lint": "ng lint"
-  },
+  "name": "angular-bone-demo",
   "private": true,
   "dependencies": {
     "@angular/common": "^6.1.0",
