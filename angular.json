@@ -12,18 +12,18 @@
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/bone/tsconfig.lib.json",
-            "project": "projects/bone/ng-package.json"
+            "tsConfig": "lib/tsconfig.lib.json",
+            "project": "lib/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/bone/ng-package.prod.json"
+              "project": "lib/ng-package.prod.json"
             }
           }
         }
       }
     },
-    "angular-bone": {
+    "demo": {
       "root": "",
       "sourceRoot": "demo",
       "projectType": "application",
@@ -68,11 +68,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-bone:build"
+            "browserTarget": "demo:build"
           }
         }
       }
     }
   },
-  "defaultProject": "angular-bone"
+  "defaultProject": "demo"
 }

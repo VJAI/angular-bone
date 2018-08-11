@@ -1,6 +1,7 @@
 import {Component, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import 'zone.js/dist/zone';
+import { BoneModule } from '../lib/bone';
 
 @Component({
   selector: 'demo-root',
@@ -16,7 +17,8 @@ class DemoComponent {
     DemoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BoneModule
   ],
   bootstrap: [DemoComponent]
 })
