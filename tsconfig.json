@@ -17,6 +17,7 @@
       "es2017",
       "dom"
     ],
+    "downlevelIteration": true,
     "paths": {
       "bone": [
         "dist/bone"
