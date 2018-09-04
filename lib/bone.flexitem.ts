@@ -81,7 +81,7 @@ export class BoneFlexItem extends BoneBase {
   @Input('bon-flex-item-align-xl')
   public alignXl: string;
 
-  protected applyLayout(): void {
+  public applyLayout(): void {
     const flexItemStyle = {
       order: this.getValue([this.orderXl, this.orderLg, this.orderMd, this.orderSm, this.order]),
       grow: this.getValue([this.growXl, this.growLg, this.growMd, this.growSm, this.grow]),
@@ -91,5 +91,9 @@ export class BoneFlexItem extends BoneBase {
     };
 
     Object.assign(this.el.nativeElement.style, flexItemStyle);
+  }
+
+  getAssignedStyles(): Array<string> {
+    return ['order', 'grow', 'shrink', 'basis', 'align'];
   }
 }

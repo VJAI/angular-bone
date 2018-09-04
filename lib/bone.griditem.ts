@@ -13,7 +13,7 @@ export class BoneGridItem extends BoneBase {
   row: number | [number | string, number | string] | string;
 
   @Input('bon-grid-item-area')
-  area: [number, number, number, number] | string;
+  area: [number | string, number | string, number | string, number | string] | string;
 
   @Input('bon-grid-item-justify')
   justify: string;
@@ -22,13 +22,13 @@ export class BoneGridItem extends BoneBase {
   align: string;
 
   @Input('bon-grid-item-col-sm')
-  colSm: string;
+  colSm: number | [number | string, number | string] | string;
 
   @Input('bon-grid-item-row-sm')
   rowSm: number | [number | string, number | string] | string;
 
   @Input('bon-grid-item-area-sm')
-  areaSm: string;
+  areaSm: [number | string, number | string, number | string, number | string] | string;
 
   @Input('bon-grid-item-justify-sm')
   justifySm: string;
@@ -37,13 +37,13 @@ export class BoneGridItem extends BoneBase {
   alignSm: string;
 
   @Input('bon-grid-item-col-md')
-  colMd: string;
+  colMd: number | [number | string, number | string] | string;
 
   @Input('bon-grid-item-row-md')
   rowMd: number | [number | string, number | string] | string;
 
   @Input('bon-grid-item-area-md')
-  areaMd: string;
+  areaMd: [number | string, number | string, number | string, number | string] | string;
 
   @Input('bon-grid-item-justify-md')
   justifyMd: string;
@@ -52,13 +52,13 @@ export class BoneGridItem extends BoneBase {
   alignMd: string;
 
   @Input('bon-grid-item-col-lg')
-  colLg: string;
+  colLg: number | [number | string, number | string] | string;
 
   @Input('bon-grid-item-row-lg')
   rowLg: number | [number | string, number | string] | string;
 
   @Input('bon-grid-item-area-lg')
-  areaLg: string;
+  areaLg: [number | string, number | string, number | string, number | string] | string;
 
   @Input('bon-grid-item-justify-lg')
   justifyLg: string;
@@ -67,13 +67,13 @@ export class BoneGridItem extends BoneBase {
   alignLg: string;
 
   @Input('bon-grid-item-col-xl')
-  colXl: string;
+  colXl: number | [number | string, number | string] | string;
 
   @Input('bon-grid-item-row-xl')
   rowXl: number | [number | string, number | string] | string;
 
   @Input('bon-grid-item-area-xl')
-  areaXl: string;
+  areaXl: [number | string, number | string, number | string, number | string] | string;
 
   @Input('bon-grid-item-justify-xl')
   justifyXl: string;
@@ -81,16 +81,28 @@ export class BoneGridItem extends BoneBase {
   @Input('bon-grid-item-align-xl')
   alignXl: string;
 
-  protected applyLayout(): void {
+  public applyLayout(): void {
     const gridItemStyle = {
-      gridColumn: this.getCol(),
-      gridRow: this.getRow(),
-      gridTemplateAreas: this.getAreaInfo(),
-      justifySelf: this.getValue([this.justifyXl, this.justifyLg, this.justifyMd, this.justifySm]),
-      alignSelf: this.getValue([this.alignXl, this.alignLg, this.alignMd, this.alignSm])
+      justifySelf: this.getValue([this.justifyXl, this.justifyLg, this.justifyMd, this.justifySm, this.justify]),
+      alignSelf: this.getValue([this.alignXl, this.alignLg, this.alignMd, this.alignSm, this.align])
     };
 
+    const col = this.getCol(),
+      row = this.getRow(),
+      area = this.getAreaInfo();
+
+    if (area) {
+      gridItemStyle['area'] = area;
+    } else {
+      gridItemStyle['gridColumn'] = col;
+      gridItemStyle['gridRow'] = row;
+    }
+
     Object.assign(this.el.nativeElement.style, gridItemStyle);
+  }
+
+  public getAssignedStyles(): Array<string> {
+    return ['grid-column', 'grid-row', 'grid-area', 'justify-self', 'align-self'];
   }
 
   private getCol(): string {
@@ -104,16 +116,22 @@ export class BoneGridItem extends BoneBase {
   }
 
   private getTrackInfo(track: number | [number | string, number | string] | string): string {
-    if (typeof track === 'string') {
-      return track;
-    } else if (this.isNumeric(<number>track)) {
+    if (this.isNumeric(<number>track)) {
       return `span ${track}`;
+    } else if (Array.isArray(track)) {
+      return `${track[0]} / ${track[1]}`;
     }
 
-    return `${track[0]} / ${track[1]}`;
+    return <string>track || '';
   }
 
   private getAreaInfo(): string {
-    return '';
+    const area = this.getValue([this.areaXl, this.areaLg, this.areaMd, this.areaSm, this.area]);
+
+    if (Array.isArray(area)) {
+      return `${area[0] / area[1] / area[2] / area[3]}`;
+    }
+
+    return area;
   }
 }

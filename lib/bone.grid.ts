@@ -226,22 +226,26 @@ export class BoneGrid extends BoneBase {
   @Input('bon-grid-align-content-xl')
   public alignContentXl: string;
 
-  protected applyLayout(): void {
+  public applyLayout(): void {
     const gridStyle = {
-      display: this.getValue([this.displayXl, this.displayLg, this.displayMd, this.displaySm]),
+      display: this.getValue([this.displayXl, this.displayLg, this.displayMd, this.displaySm, this.display]),
       gridTemplateColumns: this.getCols(),
       gridTemplateRows: this.getRows(),
       gridTemplateAreas: this.getAreas(),
       gridAutoColumns: this.getAutoCols(),
       gridAutoRows: this.getAutoRows(),
       gridGap: this.getGap(),
-      justifyItems: this.getValue([this.justifyContentXl, this.justifyContentLg, this.justifyContentMd, this.justifyContentSm]),
-      alignItems: this.getValue([this.alignItemsXl, this.alignItemsLg, this.alignItemsMd, this.alignItemsSm]),
-      justifyContent: this.getValue([this.justifyContentXl, this.justifyContentLg, this.justifyContentMd, this.justifyContentSm]),
-      alignContent: this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm])
+      justifyItems: this.getValue([this.justifyItemsXl, this.justifyItemsLg, this.justifyItemsMd, this.justifyItemsSm, this.justifyItems]),
+      alignItems: this.getValue([this.alignItemsXl, this.alignItemsLg, this.alignItemsMd, this.alignItemsSm, this.alignItems]),
+      justifyContent: this.getValue([this.justifyContentXl, this.justifyContentLg, this.justifyContentMd, this.justifyContentSm, this.justifyContent]),
+      alignContent: this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignContent])
     };
 
     Object.assign(this.el.nativeElement.style, gridStyle);
+  }
+
+  public getAssignedStyles(): Array<string> {
+    return ['display', 'grid-template-columns', 'grid-template-rows', 'grid-template-areas', 'grid-auto-columns', 'grid-auto-rows', 'grid-gap', 'justify-items', 'align-items', 'justify-content', 'align-content'];
   }
 
   private getCols(): string {

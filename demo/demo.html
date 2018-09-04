@@ -1,3 +1,38 @@
-<div bon-grid bon-grid-cols="2" bon-grid-cols-md="1" bon-grid-auto-rows="60px">
-</div>
+<div class="container"
+     bon-grid
+     bon-grid-cols="25% 1fr"
+     bon-grid-rows="auto 1fr auto">
 
+  <header
+    bon-grid-item
+    bon-grid-item-col="2"
+    bon-grid-item-col-sm="1"
+    bon-flex
+    bon-flex-justify-content="center"
+    bon-flex-align-items="center">
+    Header
+  </header>
+
+  <aside
+    bon-flex-justify-content="center"
+    bon-flex
+    bon-flex-align-items="center">
+    Sidebar
+  </aside>
+
+  <main
+    bon-flex-justify-content="center"
+    bon-flex
+    bon-flex-align-items="center">
+    Main
+  </main>
+
+  <footer
+    bon-grid-item
+    bon-grid-item-col="2"
+    bon-flex
+    bon-flex-justify-content="center"
+    bon-flex-align-items="center">
+    Footer
+  </footer>
+</div>

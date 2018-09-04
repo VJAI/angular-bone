@@ -22,15 +22,20 @@ export abstract class BoneBase {
 
   ngOnDestroy() {
     this.mediaWatcherUnSubscribeFunction();
+    this.getAssignedStyles().forEach(style => {
+      this.el.nativeElement.style.removeProperty(style);
+    });
   }
 
-  protected abstract applyLayout(): void;
+  public abstract applyLayout(): void;
 
-  protected getValue(arr: Array<any>): any {
+  public abstract getAssignedStyles(): Array<string>;
+
+  public getValue(arr: Array<any>): any {
     return arr.reverse().splice(['xl', 'lg', 'md', 'sm'].indexOf(this.breakpoint)).find(val => val);
   }
 
-  protected isNumeric(num: number | string): boolean {
+  public isNumeric(num: number | string): boolean {
     return !isNaN(num as number);
   }
 }

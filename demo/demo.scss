@@ -1,0 +1,23 @@
+.container {
+  height: 100vh;
+
+  header, footer {
+    height: 60px;
+  }
+
+  header {
+    background-color: darkturquoise;
+  }
+
+  aside {
+    background-color: cornsilk;
+  }
+
+  main {
+    background-color: peachpuff;
+  }
+
+  footer {
+    background-color: silver;
+  }
+}

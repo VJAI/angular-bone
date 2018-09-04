@@ -136,7 +136,7 @@ export class BoneFlex extends BoneBase {
   @Input('bon-flex-align-content-xl')
   public alignContentXl: string;
 
-  protected applyLayout(): void {
+  public applyLayout(): void {
     const flexStyle = {
       display: this.getValue([this.displayXl, this.displayLg, this.displayMd, this.displaySm, this.display]),
       flexDirection: this.getValue([this.directionXl, this.directionLg, this.directionMd, this.directionSm, this.direction]),
@@ -147,5 +147,9 @@ export class BoneFlex extends BoneBase {
     };
 
     Object.assign(this.el.nativeElement.style, flexStyle);
+  }
+
+  public getAssignedStyles(): Array<string> {
+    return ['display', 'flex-direction', 'flex-wrap', 'justify-content', 'align-items', 'align-content'];
   }
 }
