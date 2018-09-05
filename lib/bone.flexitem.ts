@@ -93,7 +93,7 @@ export class BoneFlexItem extends BoneBase {
     Object.assign(this.el.nativeElement.style, flexItemStyle);
   }
 
-  getAssignedStyles(): Array<string> {
+  public getAssignedStyles(): Array<string> {
     return ['order', 'grow', 'shrink', 'basis', 'align'];
   }
 }

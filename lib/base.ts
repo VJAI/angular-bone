@@ -1,8 +1,8 @@
-import { Breakpoint } from "./breakpoint";
-import { ElementRef, Inject } from "@angular/core";
-import { MediaSizeWatcher } from "./watcher";
+import { ElementRef, Inject, OnChanges, OnDestroy } from '@angular/core';
+import { Breakpoint } from './breakpoint';
+import { MediaSizeWatcher } from './watcher';
 
-export abstract class BoneBase {
+export abstract class BoneBase implements OnChanges, OnDestroy {
 
   protected breakpoint: Breakpoint;
 
