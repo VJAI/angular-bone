@@ -83,11 +83,11 @@ export class BoneFlexItem extends BoneBase {
 
   public applyLayout(): void {
     const flexItemStyle = {
-      order: this.getValue([this.orderXl, this.orderLg, this.orderMd, this.orderSm, this.order]),
-      grow: this.getValue([this.growXl, this.growLg, this.growMd, this.growSm, this.grow]),
-      shrink: this.getValue([this.shrinkXl, this.shrinkLg, this.shrinkMd, this.shrinkSm, this.shrink]),
-      basis: this.getValue([this.basisXl, this.basisLg, this.basisMd, this.basisSm, this.basis]),
-      align: this.getValue([this.alignXl, this.alignLg, this.alignMd, this.alignSm, this.align])
+      flexOrder: this.getValue([this.orderXl, this.orderLg, this.orderMd, this.orderSm, this.order]),
+      flexGrow: this.getValue([this.growXl, this.growLg, this.growMd, this.growSm, this.grow]),
+      flexShrink: this.getValue([this.shrinkXl, this.shrinkLg, this.shrinkMd, this.shrinkSm, this.shrink]),
+      flexBasis: this.getValue([this.basisXl, this.basisLg, this.basisMd, this.basisSm, this.basis]),
+      alignSelf: this.getValue([this.alignXl, this.alignLg, this.alignMd, this.alignSm, this.align])
     };
 
     Object.assign(this.el.nativeElement.style, flexItemStyle);

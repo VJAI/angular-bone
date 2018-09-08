@@ -60,6 +60,9 @@
             "index": "demo/index.html",
             "main": "demo/main.ts",
             "tsConfig": "demo/tsconfig.json",
+            "assets": [
+              "demo/assets"
+            ],
             "styles": [
               "demo/styles.scss"
             ]

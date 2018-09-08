@@ -1,23 +1,58 @@
 .container {
-  height: 100vh;
-
-  header, footer {
-    height: 60px;
-  }
+  min-height: 100vh;
 
   header {
-    background-color: darkturquoise;
+    background-color: #00bfff;
+    color: #efefef;
+    box-shadow: 0 3px 3px -3px #949a9c;
+    text-shadow: 0 1px 0 #949a9c;
+    z-index: 1;
+
+    div {
+      margin: 0 1rem 0 1rem;
+
+      .logo {
+        font-size: 3.5rem;
+        font-family: 'Fredoka One', cursive;
+      }
+
+      .github {
+        margin-top: 1rem;
+      }
+    }
   }
 
   aside {
-    background-color: cornsilk;
+    background-color: #f2f4f4;
+
+    nav {
+      padding-top: 20px;
+
+      ul {
+        text-transform: capitalize;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+
+        li {
+          a {
+            padding: 0.5rem 0.75rem;
+            display: block;
+            text-align: center;
+          }
+        }
+      }
+    }
   }
 
   main {
-    background-color: peachpuff;
-  }
+    padding: 2rem 4rem;
 
-  footer {
-    background-color: silver;
+    h1 {
+      border-bottom: solid 1px #eaefef;
+    }
   }
 }

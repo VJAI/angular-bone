@@ -92,7 +92,7 @@ export class BoneGridItem extends BoneBase {
       area = this.getAreaInfo();
 
     if (area) {
-      gridItemStyle['area'] = area;
+      gridItemStyle['gridArea'] = area;
     } else {
       gridItemStyle['gridColumn'] = col;
       gridItemStyle['gridRow'] = row;

@@ -1,38 +1,84 @@
 <div class="container"
      bon-grid
      bon-grid-cols="25% 1fr"
-     bon-grid-rows="auto 1fr auto">
+     bon-grid-rows="12.5rem 1fr"
+     bon-grid-area="'h h' 'a m'">
 
-  <header
-    bon-grid-item
-    bon-grid-item-col="2"
-    bon-grid-item-col-sm="1"
-    bon-flex
-    bon-flex-justify-content="center"
-    bon-flex-align-items="center">
-    Header
+  <header bon-grid-item bon-grid-item-area="h">
+    <div bon-flex bon-flex-align-items="center">
+      <div bon-flex-item bon-flex-item-grow="1">
+        <h1 class="logo">angular-bone</h1>
+        <p>Provides structure to your angular apps using CSS3 Grid and Flex</p>
+      </div>
+      <a class="github" bon-flex-item bon-flex-item-align="flex-start">GITHUB</a>
+    </div>
   </header>
 
-  <aside
-    bon-flex-justify-content="center"
-    bon-flex
-    bon-flex-align-items="center">
-    Sidebar
+  <aside bon-grid-item bon-grid-item-area="a">
+    <nav>
+      <ul>
+        <li><a href="#intro">Introduction</a></li>
+        <li><a href="#simple-flex">Simple flex layout</a></li>
+        <li><a href="#">Simple grid layout</a></li>
+        <li><a href="#">Responsive flex layout</a></li>
+        <li><a href="#">Responsive grid layout</a></li>
+        <li><a href="#">Mixing grid and flex</a></li>
+        <li><a href="#">Real world example</a></li>
+        <li><a href="#">API</a></li>
+      </ul>
+    </nav>
   </aside>
 
-  <main
-    bon-flex-justify-content="center"
-    bon-flex
-    bon-flex-align-items="center">
-    Main
-  </main>
+  <main bon-grid-item bon-grid-item-area="m">
+    <h1>angular-bone</h1>
 
-  <footer
-    bon-grid-item
-    bon-grid-item-col="2"
-    bon-flex
-    bon-flex-justify-content="center"
-    bon-flex-align-items="center">
-    Footer
-  </footer>
+    <h2 id="intro">Introduction</h2>
+
+    <p>
+      <a href="#">angular-bone</a> helps to build page layouts using CSS3 Grid and Flex concepts for your angular apps. It
+      provides you a set of directives that helps to build responsive layouts in a declarative way.
+    </p>
+
+    <h2>Simple flex layout</h2>
+
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+    </p>
+
+    <h2>Simple grid layout</h2>
+
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+    </p>
+
+    <h2>Responsive flex layout</h2>
+
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+    </p>
+
+    <h2>Responsive grid layout</h2>
+
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+    </p>
+
+    <h2>Mixing grid and flex</h2>
+
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+    </p>
+
+    <h2>Real world example</h2>
+
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+    </p>
+
+    <h2>API</h2>
+
+    <p>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+    </p>
+  </main>
 </div>

@@ -31,6 +31,10 @@ export abstract class BoneBase implements OnChanges, OnDestroy {
 
   public abstract getAssignedStyles(): Array<string>;
 
+  public destroy(): void {
+    this.ngOnDestroy();
+  }
+
   public getValue(arr: Array<any>): any {
     return arr.reverse().splice(['xl', 'lg', 'md', 'sm'].indexOf(this.breakpoint)).find(val => val);
   }
