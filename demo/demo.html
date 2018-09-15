@@ -1,21 +1,26 @@
 <div class="container"
      bon-grid
-     bon-grid-cols="25% 1fr"
-     bon-grid-rows="12.5rem 1fr"
-     bon-grid-area="'h h' 'a m'">
+     bon-grid-cols="1"
+     bon-grid-cols-md="25% 1fr"
+     bon-grid-rows="12.5rem auto 1fr"
+     bon-grid-rows-md="12.5rem 1fr"
+     bon-grid-area="'h' 'a' 'm'"
+     bon-grid-area-md="'h h' 'a m'">
 
   <header bon-grid-item bon-grid-item-area="h">
     <div bon-flex bon-flex-align-items="center">
       <div bon-flex-item bon-flex-item-grow="1">
-        <h1 class="logo">angular-bone</h1>
+        <h1 class="logo">angular<img src="assets/bone.png" />bone</h1>
         <p>Provides structure to your angular apps using CSS3 Grid and Flex</p>
       </div>
-      <a class="github" bon-flex-item bon-flex-item-align="flex-start">GITHUB</a>
+      <a class="github" bon-flex-item bon-flex-item-align="flex-start" target="_blank" href="https://github.com/vjai/angular-bone">GITHUB</a>
     </div>
   </header>
 
-  <aside bon-grid-item bon-grid-item-area="a">
+  <aside #aside [class.sticky]="isSticky" bon-grid-item bon-grid-item-area="a">
     <nav>
+      <h4>Table of Contents</h4>
+
       <ul>
         <li><a href="#intro">Introduction</a></li>
         <li><a href="#simple-flex">Simple flex layout</a></li>
@@ -41,27 +46,101 @@
 
     <h2>Simple flex layout</h2>
 
-    <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
-    </p>
+    <h4>Code</h4>
+
+    <pre>
+&lt;div <strong>bon-flex</strong>&gt;
+  &lt;div class="green" <strong>bon-flex-item bon-flex-item-grow="1"</strong>&gt;&lt;/div&gt;
+  &lt;div class="yellow" <strong>bon-flex-item bon-flex-item-grow="1"</strong>&gt;&lt;/div&gt;
+  &lt;div class="pink" <strong>bon-flex-item bon-flex-item-grow="2"</strong>&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+    <h4>Preview</h4>
+
+    <div id="simple-flex-example" class="canvas" bon-flex>
+      <div class="green" bon-flex-item bon-flex-item-grow="1"></div>
+      <div class="yellow" bon-flex-item bon-flex-item-grow="1"></div>
+      <div class="pink" bon-flex-item bon-flex-item-grow="2"></div>
+    </div>
 
     <h2>Simple grid layout</h2>
 
-    <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
-    </p>
+    <h4>Code</h4>
+
+    <pre>
+&lt;div id="simple-grid-example" class="canvas"
+      <strong>bon-grid bon-grid-cols="30% 1fr"
+      bon-grid-rows="20% 1fr 10%"
+      bon-grid-area="'a a' 'b c' 'd d'"</strong>&gt;
+
+  &lt;div class="purple" <strong>bon-grid-item bon-grid-item-area="a"</strong>&gt;&lt;/div&gt;
+  &lt;div class="yellow" <strong>bon-grid-item bon-grid-item-area="b"</strong>&gt;&lt;/div&gt;
+  &lt;div class="green" <strong>bon-grid-item bon-grid-item-area="c"</strong>&gt;&lt;/div&gt;
+  &lt;div class="pink" <strong>bon-grid-item bon-grid-item-area="d"</strong>&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+    <h4>Preview</h4>
+
+    <div id="simple-grid-example" class="canvas" bon-grid bon-grid-cols="30% 1fr" bon-grid-rows="20% 1fr 10%" bon-grid-area="'a a' 'b c' 'd d'">
+      <div class="purple" bon-grid-item bon-grid-item-area="a"></div>
+      <div class="yellow" bon-grid-item bon-grid-item-area="b"></div>
+      <div class="green" bon-grid-item bon-grid-item-area="c"></div>
+      <div class="pink" bon-grid-item bon-grid-item-area="d"></div>
+    </div>
 
     <h2>Responsive flex layout</h2>
 
-    <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
-    </p>
+    <h4>Code</h4>
+
+    <pre>
+&lt;div <strong>bon-flex bon-flex-direction-md="column" bon-flex-direction-md="row"</strong>&gt;
+  &lt;div class="green" <strong>bon-flex-item bon-flex-item-grow="1"</strong>&gt;&lt;/div&gt;
+  &lt;div class="yellow" <strong>bon-flex-item bon-flex-item-grow="1"</strong>&gt;&lt;/div&gt;
+  &lt;div class="pink" <strong>bon-flex-item bon-flex-item-grow="1" bon-flex-item-grow-md="2"</strong>&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+    <h4>Preview (Resize the window to see the changes)</h4>
+
+    <div id="responsive-flex-example" class="canvas" bon-flex bon-flex-direction="column" bon-flex-direction-md="row">
+      <div class="green" bon-flex-item bon-flex-item-grow="1"></div>
+      <div class="yellow" bon-flex-item bon-flex-item-grow="1"></div>
+      <div class="pink" bon-flex-item bon-flex-item-grow="1" bon-flex-item-grow-md="2"></div>
+    </div>
 
     <h2>Responsive grid layout</h2>
 
-    <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
-    </p>
+    <h4>Code</h4>
+
+    <pre>
+&lt;div id="simple-grid-example" class="canvas"
+      <strong>bon-grid bon-grid-cols="1"
+      bon-grid-cols-md="30% 1fr"
+      bon-grid-rows="20% 30% 1fr 10%"
+      bon-grid-rows-md="20% 1fr 10%"
+      bon-grid-area="'a' 'b' 'c' 'd'"
+      bon-grid-area-md="'a a' 'b c' 'd d'"</strong>&gt;
+
+  &lt;div class="purple" <strong>bon-grid-item bon-grid-item-area="a"</strong>&gt;&lt;/div&gt;
+  &lt;div class="yellow" <strong>bon-grid-item bon-grid-item-area="b"</strong>&gt;&lt;/div&gt;
+  &lt;div class="green" <strong>bon-grid-item bon-grid-item-area="c"</strong>&gt;&lt;/div&gt;
+  &lt;div class="pink" <strong>bon-grid-item bon-grid-item-area="d"</strong>&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+    <h4>Preview (Resize the window to see the changes)</h4>
+
+    <div id="responsive-grid-example" class="canvas"
+         bon-grid
+         bon-grid-cols="1"
+         bon-grid-cols-md="30% 1fr"
+         bon-grid-rows="20% 30% 1fr 10%"
+         bon-grid-rows-md="20% 1fr 10%"
+         bon-grid-area="'a' 'b' 'c' 'd'"
+         bon-grid-area-md="'a a' 'b c' 'd d'">
+      <div class="purple" bon-grid-item bon-grid-item-area="a"></div>
+      <div class="yellow" bon-grid-item bon-grid-item-area="b"></div>
+      <div class="green" bon-grid-item bon-grid-item-area="c"></div>
+      <div class="pink" bon-grid-item bon-grid-item-area="d"></div>
+    </div>
 
     <h2>Mixing grid and flex</h2>
 

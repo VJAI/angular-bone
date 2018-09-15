@@ -15,7 +15,8 @@ export class MediaSizeWatcher {
     [Breakpoint.ExtraLarge, window.matchMedia('(min-width: 1200px)')],
     [Breakpoint.Large, window.matchMedia('(min-width: 992px)')],
     [Breakpoint.Medium, window.matchMedia('(min-width: 768px)')],
-    [Breakpoint.Small, window.matchMedia('(min-width: 576px)')]
+    [Breakpoint.Small, window.matchMedia('(min-width: 576px)')],
+    [Breakpoint.ExtraSmall, window.matchMedia('(min-width: 0)')]
   ]);
 
   constructor() {
@@ -49,6 +50,6 @@ export class MediaSizeWatcher {
   }
 
   private alertSubscribers(): void {
-    this.subscribers.forEach(subscriber => setTimeout(() => subscriber(this.currentMediaSize), 0));
+    this.subscribers.forEach(subscriber => subscriber(this.currentMediaSize));
   }
 }

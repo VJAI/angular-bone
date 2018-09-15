@@ -1,5 +1,5 @@
 .container {
-  min-height: 100vh;
+  height: 100%;
 
   header {
     background-color: #00bfff;
@@ -14,6 +14,12 @@
       .logo {
         font-size: 3.5rem;
         font-family: 'Fredoka One', cursive;
+
+        img {
+          position: relative;
+          bottom: 5px;
+          margin: 0 5px;
+        }
       }
 
       .github {
@@ -27,6 +33,11 @@
 
     nav {
       padding-top: 20px;
+
+      h4 {
+        font-size: 1.5rem;
+        text-align: center;
+      }
 
       ul {
         text-transform: capitalize;
@@ -42,9 +53,21 @@
             padding: 0.5rem 0.75rem;
             display: block;
             text-align: center;
+            transition: all 0.25s;
+
+            &:hover {
+              background-color: #fff;
+            }
           }
         }
       }
+    }
+
+    &.sticky {
+      position: fixed;
+      top: 0;
+      height: 100%;
+      width: 25%;
     }
   }
 
@@ -53,6 +76,62 @@
 
     h1 {
       border-bottom: solid 1px #eaefef;
+    }
+
+    .canvas {
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      padding: 10px;
+
+      div {
+        margin: 5px;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+      }
+    }
+
+    .green {
+      background-color: #c7e853;
+    }
+
+    .yellow {
+      background-color: #f2ef37;
+    }
+
+    .pink {
+      background-color: #ff2873;
+    }
+
+    .purple {
+      background-color: #a07df2;
+    }
+
+    #simple-flex-example, #responsive-flex-example {
+      height: 300px;
+    }
+
+    #simple-grid-example, #responsive-grid-example {
+      height: 500px;
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .container {
+    header {
+      div {
+        .logo {
+          font-size: 2.2rem;
+
+          img {
+            width: 20px;
+          }
+        }
+      }
+    }
+
+    main {
+      padding: 2rem;
     }
   }
 }

@@ -13,10 +13,25 @@ html, body {
   a {
     text-decoration: none;
     color: inherit;
+
+    &:hover {
+      color: #00bfff;
+    }
   }
 
   p {
     line-height: 1.8;
+  }
+
+  pre {
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    background-color: #f2f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0;
+    white-space: pre-wrap;
   }
 }
 

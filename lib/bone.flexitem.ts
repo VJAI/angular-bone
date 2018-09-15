@@ -1,6 +1,14 @@
 import { Directive, Input } from '@angular/core';
 import { BoneBase } from './base';
 
+export interface FlexItemStyleProps {
+  flexOrder: string;
+  flexGrow: string;
+  flexShrink: string;
+  flexBasis: string;
+  alignSelf: string;
+}
+
 @Directive({
   selector: '[bon-flex-item]'
 })
@@ -81,8 +89,10 @@ export class BoneFlexItem extends BoneBase {
   @Input('bon-flex-item-align-xl')
   public alignXl: string;
 
-  public applyLayout(): void {
-    const flexItemStyle = {
+  private currentStyles: FlexItemStyleProps = null;
+
+  public getStyles(): { [key: string]: any } {
+    const newStyles = {
       flexOrder: this.getValue([this.orderXl, this.orderLg, this.orderMd, this.orderSm, this.order]),
       flexGrow: this.getValue([this.growXl, this.growLg, this.growMd, this.growSm, this.grow]),
       flexShrink: this.getValue([this.shrinkXl, this.shrinkLg, this.shrinkMd, this.shrinkSm, this.shrink]),
@@ -90,10 +100,19 @@ export class BoneFlexItem extends BoneBase {
       alignSelf: this.getValue([this.alignXl, this.alignLg, this.alignMd, this.alignSm, this.align])
     };
 
-    Object.assign(this.el.nativeElement.style, flexItemStyle);
+    if (this.currentStyles === null ||
+      this.currentStyles.flexOrder !== newStyles.flexOrder ||
+      this.currentStyles.flexShrink !== newStyles.flexShrink ||
+      this.currentStyles.flexBasis !== newStyles.flexBasis ||
+      this.currentStyles.alignSelf !== newStyles.alignSelf) {
+      this.currentStyles = newStyles;
+      return this.currentStyles;
+    }
+
+    return null;
   }
 
-  public getAssignedStyles(): Array<string> {
+  public getStylePropNames(): Array<string> {
     return ['order', 'grow', 'shrink', 'basis', 'align'];
   }
 }

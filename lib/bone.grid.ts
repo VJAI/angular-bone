@@ -1,12 +1,26 @@
 import { Directive, Input } from '@angular/core';
 import { BoneBase } from './base';
 
+export interface GridContainerStyleProps {
+  display: string;
+  gridTemplateColumns: string;
+  gridTemplateRows: string;
+  gridTemplateAreas: string;
+  gridAutoColumns: string;
+  gridAutoRows: string;
+  gridGap: string;
+  justifyItems: string;
+  alignItems: string;
+  justifyContent: string;
+  alignContent: string;
+}
+
 @Directive({
   selector: '[bon-grid]'
 })
 export class BoneGrid extends BoneBase {
 
-  private _display: string = 'grid';
+  private _display = 'grid';
 
   @Input('bon-grid')
   public get display(): string {
@@ -50,7 +64,7 @@ export class BoneGrid extends BoneBase {
   @Input('bon-grid-align-content')
   public alignContent: string;
 
-  private _displaySm: string = 'grid';
+  private _displaySm = 'grid';
 
   @Input('bon-grid-sm')
   public get displaySm(): string {
@@ -94,7 +108,7 @@ export class BoneGrid extends BoneBase {
   @Input('bon-grid-align-content-sm')
   public alignContentSm: string;
 
-  private _displayMd: string = 'grid';
+  private _displayMd = 'grid';
 
   @Input('bon-grid-md')
   public get displayMd(): string {
@@ -138,7 +152,7 @@ export class BoneGrid extends BoneBase {
   @Input('bon-grid-align-content-md')
   public alignContentMd: string;
 
-  private _displayLg: string = 'grid';
+  private _displayLg = 'grid';
 
   @Input('bon-grid-lg')
   public get displayLg(): string {
@@ -182,7 +196,7 @@ export class BoneGrid extends BoneBase {
   @Input('bon-grid-align-content-lg')
   public alignContentLg: string;
 
-  private _displayXl: string = 'grid';
+  private _displayXl = 'grid';
 
   @Input('bon-grid-xl')
   public get displayXl(): string {
@@ -226,8 +240,10 @@ export class BoneGrid extends BoneBase {
   @Input('bon-grid-align-content-xl')
   public alignContentXl: string;
 
-  public applyLayout(): void {
-    const gridStyle = {
+  private currentStyles: GridContainerStyleProps = null;
+
+  public getStyles(): { [key: string]: any } {
+    const newStyles = {
       display: this.getValue([this.displayXl, this.displayLg, this.displayMd, this.displaySm, this.display]),
       gridTemplateColumns: this.getCols(),
       gridTemplateRows: this.getRows(),
@@ -237,15 +253,45 @@ export class BoneGrid extends BoneBase {
       gridGap: this.getGap(),
       justifyItems: this.getValue([this.justifyItemsXl, this.justifyItemsLg, this.justifyItemsMd, this.justifyItemsSm, this.justifyItems]),
       alignItems: this.getValue([this.alignItemsXl, this.alignItemsLg, this.alignItemsMd, this.alignItemsSm, this.alignItems]),
-      justifyContent: this.getValue([this.justifyContentXl, this.justifyContentLg, this.justifyContentMd, this.justifyContentSm, this.justifyContent]),
+      justifyContent: this.getValue([this.justifyContentXl, this.justifyContentLg, this.justifyContentMd,
+        this.justifyContentSm, this.justifyContent]),
       alignContent: this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignContent])
     };
 
-    Object.assign(this.el.nativeElement.style, gridStyle);
+    if (this.currentStyles === null ||
+      this.currentStyles.display !== newStyles.display ||
+      this.currentStyles.gridTemplateColumns !== newStyles.gridTemplateColumns ||
+      this.currentStyles.gridTemplateRows !== newStyles.gridTemplateRows ||
+      this.currentStyles.gridTemplateAreas !== newStyles.gridTemplateAreas ||
+      this.currentStyles.gridAutoColumns !== newStyles.gridAutoColumns ||
+      this.currentStyles.gridAutoRows !== newStyles.gridAutoRows ||
+      this.currentStyles.gridGap !== newStyles.gridGap ||
+      this.currentStyles.justifyItems !== newStyles.justifyItems ||
+      this.currentStyles.alignItems !== newStyles.alignItems ||
+      this.currentStyles.justifyContent !== newStyles.justifyContent ||
+      this.currentStyles.alignContent !== newStyles.alignContent
+    ) {
+      this.currentStyles = newStyles;
+      return this.currentStyles;
+    }
+
+    return null;
   }
 
-  public getAssignedStyles(): Array<string> {
-    return ['display', 'grid-template-columns', 'grid-template-rows', 'grid-template-areas', 'grid-auto-columns', 'grid-auto-rows', 'grid-gap', 'justify-items', 'align-items', 'justify-content', 'align-content'];
+  public getStylePropNames(): Array<string> {
+    return [
+      'display',
+      'grid-template-columns',
+      'grid-template-rows',
+      'grid-template-areas',
+      'grid-auto-columns',
+      'grid-auto-rows',
+      'grid-gap',
+      'justify-items',
+      'align-items',
+      'justify-content',
+      'align-content'
+    ];
   }
 
   private getCols(): string {
@@ -269,12 +315,12 @@ export class BoneGrid extends BoneBase {
   }
 
   private getAutoCols(): string {
-    const colDefaultSize = this.getValue([this.autoColsXl, this.autoColsLg, this.autoColsMd, this.autoRowsSm, this.autoCols]);
+    const colDefaultSize = this.getValue([this.autoColsXl, this.autoColsLg, this.autoColsMd, this.autoColsSm, this.autoCols]);
     return this.getTrackDefaultSize(colDefaultSize);
   }
 
   private getAutoRows(): string {
-    const rowDefaultSize = this.getValue([this.autoRowsXl, this.autoColsLg, this.autoColsMd, this.autoRowsSm, this.autoRows]);
+    const rowDefaultSize = this.getValue([this.autoRowsXl, this.autoRowsLg, this.autoRowsMd, this.autoColsSm, this.autoRows]);
     return this.getTrackDefaultSize(rowDefaultSize);
   }
 

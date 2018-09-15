@@ -1,12 +1,21 @@
 import { Directive, Input } from '@angular/core';
 import { BoneBase } from './base';
 
+export interface FlexContainerStyleProps {
+  display: string;
+  flexDirection: string;
+  flexWrap: string;
+  justifyContent: string;
+  alignItems: string;
+  alignContent: string;
+}
+
 @Directive({
   selector: '[bon-flex]'
 })
 export class BoneFlex extends BoneBase {
 
-  private _display: string = 'flex';
+  private _display = 'flex';
 
   @Input('bon-flex')
   public get display(): string {
@@ -32,7 +41,7 @@ export class BoneFlex extends BoneBase {
   @Input('bon-flex-align-content')
   public alignContent: string;
 
-  private _displaySm: string = 'flex';
+  private _displaySm = 'flex';
 
   @Input('bon-flex-sm')
   public get displaySm(): string {
@@ -58,7 +67,7 @@ export class BoneFlex extends BoneBase {
   @Input('bon-flex-align-content-sm')
   public alignContentSm: string;
 
-  private _displayMd: string = 'flex';
+  private _displayMd = 'flex';
 
   @Input('bon-flex-md')
   public get displayMd(): string {
@@ -84,7 +93,7 @@ export class BoneFlex extends BoneBase {
   @Input('bon-flex-align-content-md')
   public alignContentMd: string;
 
-  private _displayLg: string = 'flex';
+  private _displayLg = 'flex';
 
   @Input('bon-flex-lg')
   public get displayLg(): string {
@@ -110,7 +119,7 @@ export class BoneFlex extends BoneBase {
   @Input('bon-flex-align-content-lg')
   public alignContentLg: string;
 
-  private _displayXl: string = 'flex';
+  private _displayXl = 'flex';
 
   @Input('bon-flex-xl')
   public get displayXl(): string {
@@ -136,20 +145,34 @@ export class BoneFlex extends BoneBase {
   @Input('bon-flex-align-content-xl')
   public alignContentXl: string;
 
-  public applyLayout(): void {
-    const flexStyle = {
+  private currentStyles: FlexContainerStyleProps = null;
+
+  public getStyles(): { [key: string]: any } {
+    const newStyles = {
       display: this.getValue([this.displayXl, this.displayLg, this.displayMd, this.displaySm, this.display]),
       flexDirection: this.getValue([this.directionXl, this.directionLg, this.directionMd, this.directionSm, this.direction]),
       flexWrap: this.getValue([this.wrapXl, this.wrapLg, this.wrapMd, this.wrapSm, this.wrap]),
-      justifyContent: this.getValue([this.justifyContentXl, this.justifyContentLg, this.justifyContentMd, this.justifyContentSm, this.justifyContent]),
+      justifyContent: this.getValue([this.justifyContentXl, this.justifyContentLg,
+        this.justifyContentMd, this.justifyContentSm, this.justifyContent]),
       alignItems: this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignItems]),
       alignContent: this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignContent])
     };
 
-    Object.assign(this.el.nativeElement.style, flexStyle);
+    if (this.currentStyles === null ||
+      this.currentStyles.display !== newStyles.display ||
+      this.currentStyles.flexDirection !== newStyles.flexDirection ||
+      this.currentStyles.flexWrap !== newStyles.flexWrap ||
+      this.currentStyles.justifyContent !== newStyles.justifyContent ||
+      this.currentStyles.alignItems !== newStyles.alignItems ||
+      this.currentStyles.alignContent !== newStyles.alignContent) {
+      this.currentStyles = newStyles;
+      return this.currentStyles;
+    }
+
+    return null;
   }
 
-  public getAssignedStyles(): Array<string> {
+  public getStylePropNames(): Array<string> {
     return ['display', 'flex-direction', 'flex-wrap', 'justify-content', 'align-items', 'align-content'];
   }
 }

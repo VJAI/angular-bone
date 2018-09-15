@@ -1,88 +1,98 @@
 import { Directive, Input } from '@angular/core';
 import { BoneBase } from './base';
 
+export interface GridItemStyleProps {
+  justifySelf: string;
+  alignSelf: string;
+  gridArea?: string;
+  gridColumn?: string;
+  gridRow?: string;
+}
+
 @Directive({
   selector: '[bon-grid-item]'
 })
 export class BoneGridItem extends BoneBase {
 
   @Input('bon-grid-item-col')
-  col: number | [number | string, number | string] | string;
+  public col: number | [number | string, number | string] | string;
 
   @Input('bon-grid-item-row')
-  row: number | [number | string, number | string] | string;
+  public row: number | [number | string, number | string] | string;
 
   @Input('bon-grid-item-area')
-  area: [number | string, number | string, number | string, number | string] | string;
+  public area: [number | string, number | string, number | string, number | string] | string;
 
   @Input('bon-grid-item-justify')
-  justify: string;
+  public justify: string;
 
   @Input('bon-grid-item-align')
-  align: string;
+  public align: string;
 
   @Input('bon-grid-item-col-sm')
-  colSm: number | [number | string, number | string] | string;
+  public colSm: number | [number | string, number | string] | string;
 
   @Input('bon-grid-item-row-sm')
-  rowSm: number | [number | string, number | string] | string;
+  public rowSm: number | [number | string, number | string] | string;
 
   @Input('bon-grid-item-area-sm')
-  areaSm: [number | string, number | string, number | string, number | string] | string;
+  public areaSm: [number | string, number | string, number | string, number | string] | string;
 
   @Input('bon-grid-item-justify-sm')
-  justifySm: string;
+  public justifySm: string;
 
   @Input('bon-grid-item-align-sm')
-  alignSm: string;
+  public alignSm: string;
 
   @Input('bon-grid-item-col-md')
-  colMd: number | [number | string, number | string] | string;
+  public colMd: string;
 
   @Input('bon-grid-item-row-md')
-  rowMd: number | [number | string, number | string] | string;
+  public rowMd: number | [number | string, number | string] | string;
 
   @Input('bon-grid-item-area-md')
-  areaMd: [number | string, number | string, number | string, number | string] | string;
+  public areaMd: [number | string, number | string, number | string, number | string] | string;
 
   @Input('bon-grid-item-justify-md')
-  justifyMd: string;
+  public justifyMd: string;
 
   @Input('bon-grid-item-align-md')
-  alignMd: string;
+  public alignMd: string;
 
   @Input('bon-grid-item-col-lg')
-  colLg: number | [number | string, number | string] | string;
+  public colLg: string;
 
   @Input('bon-grid-item-row-lg')
-  rowLg: number | [number | string, number | string] | string;
+  public rowLg: number | [number | string, number | string] | string;
 
   @Input('bon-grid-item-area-lg')
-  areaLg: [number | string, number | string, number | string, number | string] | string;
+  public areaLg: [number | string, number | string, number | string, number | string] | string;
 
   @Input('bon-grid-item-justify-lg')
-  justifyLg: string;
+  public justifyLg: string;
 
   @Input('bon-grid-item-align-lg')
-  alignLg: string;
+  public alignLg: string;
 
   @Input('bon-grid-item-col-xl')
-  colXl: number | [number | string, number | string] | string;
+  public colXl: string;
 
   @Input('bon-grid-item-row-xl')
-  rowXl: number | [number | string, number | string] | string;
+  public rowXl: number | [number | string, number | string] | string;
 
   @Input('bon-grid-item-area-xl')
-  areaXl: [number | string, number | string, number | string, number | string] | string;
+  public areaXl: [number | string, number | string, number | string, number | string] | string;
 
   @Input('bon-grid-item-justify-xl')
-  justifyXl: string;
+  public justifyXl: string;
 
   @Input('bon-grid-item-align-xl')
-  alignXl: string;
+  public alignXl: string;
 
-  public applyLayout(): void {
-    const gridItemStyle = {
+  private currentStyles: GridItemStyleProps = null;
+
+  public getStyles(): { [key: string]: any } {
+    const newStyles: GridItemStyleProps = {
       justifySelf: this.getValue([this.justifyXl, this.justifyLg, this.justifyMd, this.justifySm, this.justify]),
       alignSelf: this.getValue([this.alignXl, this.alignLg, this.alignMd, this.alignSm, this.align])
     };
@@ -92,16 +102,26 @@ export class BoneGridItem extends BoneBase {
       area = this.getAreaInfo();
 
     if (area) {
-      gridItemStyle['gridArea'] = area;
+      newStyles.gridArea = area;
     } else {
-      gridItemStyle['gridColumn'] = col;
-      gridItemStyle['gridRow'] = row;
+      newStyles.gridColumn = col;
+      newStyles.gridRow = row;
     }
 
-    Object.assign(this.el.nativeElement.style, gridItemStyle);
+    if (this.currentStyles === null ||
+      this.currentStyles.justifySelf !== newStyles.justifySelf ||
+      this.currentStyles.alignSelf !== newStyles.alignSelf ||
+      this.currentStyles.gridArea !== newStyles.gridArea ||
+      this.currentStyles.gridColumn !== newStyles.gridColumn ||
+      this.currentStyles.gridRow !== newStyles.gridRow) {
+      this.currentStyles = newStyles;
+      return this.currentStyles;
+    }
+
+    return null;
   }
 
-  public getAssignedStyles(): Array<string> {
+  public getStylePropNames(): Array<string> {
     return ['grid-column', 'grid-row', 'grid-area', 'justify-self', 'align-self'];
   }
 
