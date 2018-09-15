@@ -1,27 +1,76 @@
-# AngularBone
+# angular-bone
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
+[angular-bone](https://vjai.github.io/angular-bone/) helps to build page layouts using CSS3 Grid and Flex concepts for your angular apps. 
+It provides you a set of directives that helps to build responsive layouts in a declarative way.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Simple Flex Layout
 
-## Code scaffolding
+```html
+<div bon-flex>
+  <div class="green" bon-flex-item bon-flex-item-grow="1"></div>
+  <div class="yellow" bon-flex-item bon-flex-item-grow="1"></div>
+  <div class="pink" bon-flex-item bon-flex-item-grow="2"></div>
+</div>
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Simple Grid Layout
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```html
+<div id="simple-grid-example" class="canvas"
+      bon-grid bon-grid-cols="30% 1fr"
+      bon-grid-rows="20% 1fr 10%"
+      bon-grid-area="'a a' 'b c' 'd d'">
 
-## Running unit tests
+  <div class="purple" bon-grid-item bon-grid-item-area="a"></div>
+  <div class="yellow" bon-grid-item bon-grid-item-area="b"></div>
+  <div class="green" bon-grid-item bon-grid-item-area="c"></div>
+  <div class="pink" bon-grid-item bon-grid-item-area="d"></div>
+</div>
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Responsive Flex Layout
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```html
+<div bon-flex bon-flex-direction-md="column" bon-flex-direction-md="row">
+  <div class="green" bon-flex-item bon-flex-item-grow="1"></div>
+  <div class="yellow" bon-flex-item bon-flex-item-grow="1"></div>
+  <div class="pink" bon-flex-item bon-flex-item-grow="1" bon-flex-item-grow-md="2"></div>
+</div>
+```
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Responsive Grid Layout
+
+```html
+<div id="simple-grid-example" class="canvas"
+      bon-grid bon-grid-cols="1"
+      bon-grid-cols-md="30% 1fr"
+      bon-grid-rows="20% 30% 1fr 10%"
+      bon-grid-rows-md="20% 1fr 10%"
+      bon-grid-area="'a' 'b' 'c' 'd'"
+      bon-grid-area-md="'a a' 'b c' 'd d'">
+
+  <div class="purple" bon-grid-item bon-grid-item-area="a"></div>
+  <div class="yellow" bon-grid-item bon-grid-item-area="b"></div>
+  <div class="green" bon-grid-item bon-grid-item-area="c"></div>
+  <div class="pink" bon-grid-item bon-grid-item-area="d"></div>
+</div>
+```
+
+
+## Mixing Grid and Flex
+
+TODO
+
+
+## Real World Example
+
+TODO
+
+
+## API
+
+TODO

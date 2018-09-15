@@ -1,6 +1,20 @@
 {
   "name": "angular-bone",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Provides structure to your angular apps using CSS3 Grid and Flex",
+  "keywords": [
+    "css3-grid",
+    "css3-flex",
+    "angular",
+    "angular-6"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VJAI/angular-bone.git"
+  },
+  "author": "Vijaya Anand",
+  "license": "MIT",
+  "homepage": "https://vjai.github.io/angular-bone/",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
