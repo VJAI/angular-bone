@@ -94,22 +94,18 @@ export class BoneGridItem extends BoneBase {
   public getStyles(): { [key: string]: any } {
     const newStyles: GridItemStyleProps = {
       justifySelf: this.getValue([this.justifyXl, this.justifyLg, this.justifyMd, this.justifySm, this.justify]),
-      alignSelf: this.getValue([this.alignXl, this.alignLg, this.alignMd, this.alignSm, this.align])
+      alignSelf: this.getValue([this.alignXl, this.alignLg, this.alignMd, this.alignSm, this.align]),
+      gridArea: this.getAreaInfo(),
+      gridColumn: this.getCol(),
+      gridRow: this.getRow()
     };
 
-    const col = this.getCol(),
-      row = this.getRow(),
-      area = this.getAreaInfo();
+    const hasValue = Object.values(newStyles).filter(newStyle => !!newStyle).length > 0;
 
-    if (area) {
-      newStyles.gridArea = area;
-    } else {
-      newStyles.gridColumn = col;
-      newStyles.gridRow = row;
-    }
-
-    if (this.currentStyles === null ||
-      this.currentStyles.justifySelf !== newStyles.justifySelf ||
+    if (this.currentStyles === null) {
+      this.currentStyles = hasValue ? newStyles : null;
+      return this.currentStyles;
+    } else if (this.currentStyles.justifySelf !== newStyles.justifySelf ||
       this.currentStyles.alignSelf !== newStyles.alignSelf ||
       this.currentStyles.gridArea !== newStyles.gridArea ||
       this.currentStyles.gridColumn !== newStyles.gridColumn ||
