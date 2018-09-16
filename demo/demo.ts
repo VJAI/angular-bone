@@ -50,7 +50,7 @@ class DemoComponent implements AfterViewInit, OnDestroy {
       return;
     }
 
-    if (this.breakpoint == Breakpoint.Large || this.breakpoint === Breakpoint.ExtraLarge) {
+    if ([Breakpoint.Medium, Breakpoint.Large, Breakpoint.ExtraLarge].indexOf(this.breakpoint) > -1) {
       this.isSticky = window.pageYOffset >= this.initialOffset;
     } else {
       this.isSticky = false;

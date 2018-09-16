@@ -2,9 +2,6 @@ import { ElementRef, EventEmitter, Inject, OnChanges, OnDestroy, Output } from '
 import { Breakpoint } from './breakpoint';
 import { MediaSizeWatcher } from './watcher';
 
-/**
- * The arguments that'll be passed to handler that listens for breakpoint changes.
- */
 export interface BreakpointChangeHandlerArgs {
   breakpoint: Breakpoint;
   el: ElementRef;
@@ -13,20 +10,11 @@ export interface BreakpointChangeHandlerArgs {
 
 export abstract class BoneBase implements OnChanges, OnDestroy {
 
-  /**
-   * Handler that should be invoked when there is a breakpoint change.
-   */
   @Output('breakpoint-change')
-  public breakpointChange: EventEmitter<BreakpointChangeHandlerArgs>;
+  public breakpointChange: EventEmitter<BreakpointChangeHandlerArgs> = new EventEmitter<BreakpointChangeHandlerArgs>();
 
-  /**
-   * The current breakpoint.
-   */
   protected breakpoint: Breakpoint;
 
-  /**
-   * The media-size-watcher unsubscribe function.
-   */
   protected mediaWatcherUnSubscribeFunction: () => void;
 
   protected currentAppliedStyles: any = null;
@@ -44,16 +32,10 @@ export abstract class BoneBase implements OnChanges, OnDestroy {
     });
   }
 
-  /**
-   * Re-apply the layout on change of props.
-   */
   ngOnChanges() {
     this.applyLayout();
   }
 
-  /**
-   * Unsubscribe from watcher and remove the applied styles.
-   */
   ngOnDestroy() {
     this.mediaWatcherUnSubscribeFunction();
     this.getStylePropNames().forEach(style => {
@@ -61,9 +43,6 @@ export abstract class BoneBase implements OnChanges, OnDestroy {
     });
   }
 
-  /**
-   * Applies the layout style properties to the attached element.
-   */
   public applyLayout(): void {
     const styles = this.getStyles();
 
@@ -82,19 +61,10 @@ export abstract class BoneBase implements OnChanges, OnDestroy {
     });
   }
 
-  /**
-   * Returns the styles that should be applied to the target element.
-   */
   public abstract getStyles(): { [key: string]: any };
 
-  /**
-   * Returns the style properties affected by the directive in kebab-cased.
-   */
   public abstract getStylePropNames(): Array<string>;
 
-  /**
-   * Destroys the directive and removes the changes applied by it.
-   */
   public destroy(): void {
     this.ngOnDestroy();
   }

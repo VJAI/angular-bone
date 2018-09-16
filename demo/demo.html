@@ -92,7 +92,7 @@
 
     <pre>
 &lt;div <strong>bon-f
-     bon-f-direction-md="column"
+     bon-f-direction="column"
      bon-f-direction-md="row"</strong>&gt;
   &lt;div class="green" <strong>bon-fi bon-fi-grow="1"</strong>&gt;&lt;/div&gt;
   &lt;div class="yellow" <strong>bon-fi bon-fi-grow="1"</strong>&gt;&lt;/div&gt;
@@ -283,28 +283,69 @@
     </p>
 
     <p>
-      Below tables lists the properties of both the directives.
+      Below tables lists the properties of both the directives. If default is not provided then it's assumed to be the
+      browser's default.
     </p>
 
     <table>
       <caption>Properties of flex container directive <var>bon-f</var></caption>
       <thead>
       <tr>
-        <th>Property Name</th>
-        <th>Type</th>
-        <th>Default</th>
+        <th style="width: 25%">Property Name</th>
+        <th style="width: 10%">Type</th>
+        <th style="width: 10%">Default</th>
         <th>Description</th>
       </tr>
       </thead>
       <tbody>
       <tr>
-        <td>sd</td>
-        <td>asd</td>
-        <td>ad</td>
-        <td>asdsad</td>
+        <td>bon-f</td>
+        <td>string</td>
+        <td>flex</td>
+        <td>The display type of the container. The value can be either "flex", "inline-flex" or "none".</td>
+      </tr>
+      <tr>
+        <td>bon-f-direction</td>
+        <td>string</td>
+        <td></td>
+        <td>The flex direction. It can be one of these values: "row", "row-reverse", "column" or "column-reverse".</td>
+      </tr>
+      <tr>
+        <td>bon-f-wrap</td>
+        <td>string</td>
+        <td></td>
+        <td>Controls the wrapping behavior of flex items. It can be "nowrap", "wrap" or "wrap-reverse".</td>
+      </tr>
+      <tr>
+        <td>bon-f-justify-content</td>
+        <td>string</td>
+        <td></td>
+        <td>Defines the alignment along the main axis. Some of the possible values are: "flex-start", "flex-end", "center" etc.</td>
+      </tr>
+      <tr>
+        <td>bon-f-align-items</td>
+        <td>string</td>
+        <td></td>
+        <td>Defines the default behaviour for how flex items are laid out along the cross axis. Some of the possible values are: "flex-start", "flex-end", "center" etc.</td>
+      </tr>
+      <tr>
+        <td>bon-f-align-content</td>
+        <td>string</td>
+        <td></td>
+        <td>Defines the alignment of individual items within the main-axis. Some of the possible values are: "flex-start", "flex-end", "center" etc.</td>
       </tr>
       </tbody>
     </table>
 
+    <p>
+      The above properties repeats for other screen sizes with the respective suffix. For example, in case of small screen
+      the properties are: <var>bon-f-sm</var>, <var>bon-f-direction-sm</var> and so on.
+    </p>
+
+    <table>
+      <caption>Properties of flex item directive <var>bon-fi</var></caption>
+      <thead>
+      </thead>
+    </table>
   </main>
 </div>
