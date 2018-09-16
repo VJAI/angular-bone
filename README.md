@@ -7,10 +7,10 @@ It provides you a set of directives that helps to build responsive layouts in a 
 ## Simple Flex Layout
 
 ```html
-<div bon-flex>
-  <div class="green" bon-flex-item bon-flex-item-grow="1"></div>
-  <div class="yellow" bon-flex-item bon-flex-item-grow="1"></div>
-  <div class="pink" bon-flex-item bon-flex-item-grow="2"></div>
+<div bon-f>
+  <div class="green" bon-fi bon-fi-grow="1"></div>
+  <div class="yellow" bon-fi bon-fi-grow="1"></div>
+  <div class="pink" bon-fi bon-fi-grow="2"></div>
 </div>
 ```
 
@@ -19,14 +19,14 @@ It provides you a set of directives that helps to build responsive layouts in a 
 
 ```html
 <div id="simple-grid-example" class="canvas"
-      bon-grid bon-grid-cols="30% 1fr"
-      bon-grid-rows="20% 1fr 10%"
-      bon-grid-area="'a a' 'b c' 'd d'">
+      bon-g bon-g-cols="30% 1fr"
+      bon-g-rows="20% 1fr 10%"
+      bon-g-area="'a a' 'b c' 'd d'">
 
-  <div class="purple" bon-grid-item bon-grid-item-area="a"></div>
-  <div class="yellow" bon-grid-item bon-grid-item-area="b"></div>
-  <div class="green" bon-grid-item bon-grid-item-area="c"></div>
-  <div class="pink" bon-grid-item bon-grid-item-area="d"></div>
+  <div class="purple" bon-gi bon-gi-area="a"></div>
+  <div class="yellow" bon-gi bon-gi-area="b"></div>
+  <div class="green" bon-gi bon-gi-area="c"></div>
+  <div class="pink" bon-gi bon-gi-area="d"></div>
 </div>
 ```
 
@@ -34,10 +34,10 @@ It provides you a set of directives that helps to build responsive layouts in a 
 ## Responsive Flex Layout
 
 ```html
-<div bon-flex bon-flex-direction-md="column" bon-flex-direction-md="row">
-  <div class="green" bon-flex-item bon-flex-item-grow="1"></div>
-  <div class="yellow" bon-flex-item bon-flex-item-grow="1"></div>
-  <div class="pink" bon-flex-item bon-flex-item-grow="1" bon-flex-item-grow-md="2"></div>
+<div bon-f bon-f-direction-md="column" bon-f-direction-md="row">
+  <div class="green" bon-fi bon-fi-grow="1"></div>
+  <div class="yellow" bon-fi bon-fi-grow="1"></div>
+  <div class="pink" bon-fi bon-fi-grow="1" bon-fi-grow-md="2"></div>
 </div>
 ```
 
@@ -46,17 +46,17 @@ It provides you a set of directives that helps to build responsive layouts in a 
 
 ```html
 <div id="simple-grid-example" class="canvas"
-      bon-grid bon-grid-cols="1"
-      bon-grid-cols-md="30% 1fr"
-      bon-grid-rows="20% 30% 1fr 10%"
-      bon-grid-rows-md="20% 1fr 10%"
-      bon-grid-area="'a' 'b' 'c' 'd'"
-      bon-grid-area-md="'a a' 'b c' 'd d'">
+      bon-g bon-g-cols="1"
+      bon-g-cols-md="30% 1fr"
+      bon-g-rows="20% 30% 1fr 10%"
+      bon-g-rows-md="20% 1fr 10%"
+      bon-g-area="'a' 'b' 'c' 'd'"
+      bon-g-area-md="'a a' 'b c' 'd d'">
 
-  <div class="purple" bon-grid-item bon-grid-item-area="a"></div>
-  <div class="yellow" bon-grid-item bon-grid-item-area="b"></div>
-  <div class="green" bon-grid-item bon-grid-item-area="c"></div>
-  <div class="pink" bon-grid-item bon-grid-item-area="d"></div>
+  <div class="purple" bon-gi bon-gi-area="a"></div>
+  <div class="yellow" bon-gi bon-gi-area="b"></div>
+  <div class="green" bon-gi bon-gi-area="c"></div>
+  <div class="pink" bon-gi bon-gi-area="d"></div>
 </div>
 ```
 
