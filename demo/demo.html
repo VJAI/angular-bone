@@ -1,23 +1,23 @@
 <div class="container"
-     bon-grid
-     bon-grid-cols="1"
-     bon-grid-cols-md="25% 1fr"
-     bon-grid-rows="12.5rem auto 1fr"
-     bon-grid-rows-md="12.5rem 1fr"
-     bon-grid-area="'h' 'a' 'm'"
-     bon-grid-area-md="'h h' 'a m'">
+     bon-g
+     bon-g-cols="1"
+     bon-g-cols-md="25% 1fr"
+     bon-g-rows="12.5rem auto 1fr"
+     bon-g-rows-md="12.5rem 1fr"
+     bon-g-area="'h' 'a' 'm'"
+     bon-g-area-md="'h h' 'a m'">
 
-  <header bon-grid-item bon-grid-item-area="h">
-    <div bon-flex bon-flex-align-items="center">
-      <div bon-flex-item bon-flex-item-grow="1">
+  <header bon-gi bon-gi-area="h">
+    <div bon-f bon-f-align-items="center">
+      <div bon-fi bon-fi-grow="1">
         <h1 class="logo">angular<img src="assets/bone.png" />bone</h1>
         <p>Provides structure to your angular apps using CSS3 Grid and Flex</p>
       </div>
-      <a class="github" bon-flex-item bon-flex-item-align="flex-start" target="_blank" href="https://github.com/vjai/angular-bone">GITHUB</a>
+      <a class="github" bon-fi bon-fi-align="flex-start" target="_blank" href="https://github.com/vjai/angular-bone">GITHUB</a>
     </div>
   </header>
 
-  <aside #aside [class.sticky]="isSticky" bon-grid-item bon-grid-item-area="a">
+  <aside #aside [class.sticky]="isSticky" bon-gi bon-gi-area="a">
     <nav>
       <h4>Table of Contents</h4>
 
@@ -34,130 +34,277 @@
     </nav>
   </aside>
 
-  <main bon-grid-item bon-grid-item-area="m">
+  <main bon-gi bon-gi-area="m">
     <h1>angular-bone</h1>
 
     <h2 id="intro">Introduction</h2>
 
     <p>
       <a href="#">angular-bone</a> helps to build page layouts using CSS3 Grid and Flex concepts for your angular apps. It
-      provides you a set of directives that helps to build responsive layouts in a declarative way.
+      provides you a set of directives that helps to build responsive layouts in a <i>declarative way</i>.
     </p>
 
-    <h2>Simple flex layout</h2>
+    <p>
+      As default, it follows <a target="_blank" href="https://getbootstrap.com/docs/4.0/layout/grid/#grid-options">bootstrap's breakpoint system</a> that allows you to configure layouts for 5 different screen sizes (Extra Small,
+      Small - sm, Medium - md, Large - lg and Extra Large - xl). It also follows mobile-first approach.
+    </p>
+
+    <p>
+      The library also provides you a media-size watcher service that you can use anywhere in your application to listen to the breakpoint
+      changes and act accordingly.
+    </p>
+
+    <h2>Flex Layouts</h2>
+
+    <p>
+      You can create flex layouts using two directives: <var>bon-f</var> and <var>bon-fi</var>.&nbsp;&nbsp;<var>bon-f</var> is used to
+      configure the properties of a flex container and <var>bon-fi</var> is used to configure the properties of a flex item.
+    </p>
+
+    <h3>Simple flex layout</h3>
 
     <h4>Code</h4>
 
     <pre>
-&lt;div <strong>bon-flex</strong>&gt;
-  &lt;div class="green" <strong>bon-flex-item bon-flex-item-grow="1"</strong>&gt;&lt;/div&gt;
-  &lt;div class="yellow" <strong>bon-flex-item bon-flex-item-grow="1"</strong>&gt;&lt;/div&gt;
-  &lt;div class="pink" <strong>bon-flex-item bon-flex-item-grow="2"</strong>&gt;&lt;/div&gt;
+&lt;div <strong>bon-f</strong>&gt;
+  &lt;div class="green" <strong>bon-fi bon-fi-grow="1"</strong>&gt;&lt;/div&gt;
+  &lt;div class="yellow" <strong>bon-fi bon-fi-grow="1"</strong>&gt;&lt;/div&gt;
+  &lt;div class="pink" <strong>bon-fi bon-fi-grow="2"</strong>&gt;&lt;/div&gt;
 &lt;/div&gt;</pre>
 
     <h4>Preview</h4>
 
-    <div id="simple-flex-example" class="canvas" bon-flex>
-      <div class="green" bon-flex-item bon-flex-item-grow="1"></div>
-      <div class="yellow" bon-flex-item bon-flex-item-grow="1"></div>
-      <div class="pink" bon-flex-item bon-flex-item-grow="2"></div>
+    <div id="simple-flex-example" class="canvas" bon-f>
+      <div class="green" bon-fi bon-fi-grow="1"></div>
+      <div class="yellow" bon-fi bon-fi-grow="1"></div>
+      <div class="pink" bon-fi bon-fi-grow="2"></div>
     </div>
 
-    <h2>Simple grid layout</h2>
+    <h3>Responsive flex layout</h3>
+
+    <p>
+      You can configure the properties for a particular screen size by suffixing the media size abbreviation (sm, md, lg and xl) after the
+      property name. If you don't specify any suffix then it's assumed for the extra small screen. If you want the same
+      configuration for all the screen sizes then ignore the suffix.
+    </p>
 
     <h4>Code</h4>
 
     <pre>
-&lt;div id="simple-grid-example" class="canvas"
-      <strong>bon-grid bon-grid-cols="30% 1fr"
-      bon-grid-rows="20% 1fr 10%"
-      bon-grid-area="'a a' 'b c' 'd d'"</strong>&gt;
-
-  &lt;div class="purple" <strong>bon-grid-item bon-grid-item-area="a"</strong>&gt;&lt;/div&gt;
-  &lt;div class="yellow" <strong>bon-grid-item bon-grid-item-area="b"</strong>&gt;&lt;/div&gt;
-  &lt;div class="green" <strong>bon-grid-item bon-grid-item-area="c"</strong>&gt;&lt;/div&gt;
-  &lt;div class="pink" <strong>bon-grid-item bon-grid-item-area="d"</strong>&gt;&lt;/div&gt;
-&lt;/div&gt;</pre>
-
-    <h4>Preview</h4>
-
-    <div id="simple-grid-example" class="canvas" bon-grid bon-grid-cols="30% 1fr" bon-grid-rows="20% 1fr 10%" bon-grid-area="'a a' 'b c' 'd d'">
-      <div class="purple" bon-grid-item bon-grid-item-area="a"></div>
-      <div class="yellow" bon-grid-item bon-grid-item-area="b"></div>
-      <div class="green" bon-grid-item bon-grid-item-area="c"></div>
-      <div class="pink" bon-grid-item bon-grid-item-area="d"></div>
-    </div>
-
-    <h2>Responsive flex layout</h2>
-
-    <h4>Code</h4>
-
-    <pre>
-&lt;div <strong>bon-flex bon-flex-direction-md="column" bon-flex-direction-md="row"</strong>&gt;
-  &lt;div class="green" <strong>bon-flex-item bon-flex-item-grow="1"</strong>&gt;&lt;/div&gt;
-  &lt;div class="yellow" <strong>bon-flex-item bon-flex-item-grow="1"</strong>&gt;&lt;/div&gt;
-  &lt;div class="pink" <strong>bon-flex-item bon-flex-item-grow="1" bon-flex-item-grow-md="2"</strong>&gt;&lt;/div&gt;
+&lt;div <strong>bon-f
+     bon-f-direction-md="column"
+     bon-f-direction-md="row"</strong>&gt;
+  &lt;div class="green" <strong>bon-fi bon-fi-grow="1"</strong>&gt;&lt;/div&gt;
+  &lt;div class="yellow" <strong>bon-fi bon-fi-grow="1"</strong>&gt;&lt;/div&gt;
+  &lt;div class="pink" <strong>bon-fi bon-fi-grow="1" bon-fi-grow-md="2"</strong>&gt;&lt;/div&gt;
 &lt;/div&gt;</pre>
 
     <h4>Preview (Resize the window to see the changes)</h4>
 
-    <div id="responsive-flex-example" class="canvas" bon-flex bon-flex-direction="column" bon-flex-direction-md="row">
-      <div class="green" bon-flex-item bon-flex-item-grow="1"></div>
-      <div class="yellow" bon-flex-item bon-flex-item-grow="1"></div>
-      <div class="pink" bon-flex-item bon-flex-item-grow="1" bon-flex-item-grow-md="2"></div>
+    <div id="responsive-flex-example" class="canvas" bon-f bon-f-direction="column" bon-f-direction-md="row">
+      <div class="green" bon-fi bon-fi-grow="1"></div>
+      <div class="yellow" bon-fi bon-fi-grow="1"></div>
+      <div class="pink" bon-fi bon-fi-grow="1" bon-fi-grow-md="2"></div>
     </div>
 
-    <h2>Responsive grid layout</h2>
+    <h2>Grid Layouts</h2>
+
+    <p>
+      You can create awesome grid layouts using two directives: <var>bon-g</var> and <var>bon-gi</var>. <var>bon-g</var> is used to
+      configure the properties of a grid container and <var>bon-gi</var> is used to configure the properties of a grid item.
+    </p>
+
+    <h3>Simple grid layout</h3>
 
     <h4>Code</h4>
 
     <pre>
-&lt;div id="simple-grid-example" class="canvas"
-      <strong>bon-grid bon-grid-cols="1"
-      bon-grid-cols-md="30% 1fr"
-      bon-grid-rows="20% 30% 1fr 10%"
-      bon-grid-rows-md="20% 1fr 10%"
-      bon-grid-area="'a' 'b' 'c' 'd'"
-      bon-grid-area-md="'a a' 'b c' 'd d'"</strong>&gt;
+&lt;div <strong>bon-g
+     bon-g-cols="30% 1fr"
+     bon-g-rows="20% 1fr 10%"
+     bon-g-area="'a a' 'b c' 'd d'"</strong>&gt;
+  &lt;div class="purple" <strong>bon-gi bon-gi-area="a"</strong>&gt;&lt;/div&gt;
+  &lt;div class="yellow" <strong>bon-gi bon-gi-area="b"</strong>&gt;&lt;/div&gt;
+  &lt;div class="green" <strong>bon-gi bon-gi-area="c"</strong>&gt;&lt;/div&gt;
+  &lt;div class="pink" <strong>bon-gi bon-gi-area="d"</strong>&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
 
-  &lt;div class="purple" <strong>bon-grid-item bon-grid-item-area="a"</strong>&gt;&lt;/div&gt;
-  &lt;div class="yellow" <strong>bon-grid-item bon-grid-item-area="b"</strong>&gt;&lt;/div&gt;
-  &lt;div class="green" <strong>bon-grid-item bon-grid-item-area="c"</strong>&gt;&lt;/div&gt;
-  &lt;div class="pink" <strong>bon-grid-item bon-grid-item-area="d"</strong>&gt;&lt;/div&gt;
+    <h4>Preview</h4>
+
+    <div id="simple-grid-example" class="canvas" bon-g bon-g-cols="30% 1fr" bon-g-rows="20% 1fr 10%" bon-g-area="'a a' 'b c' 'd d'">
+      <div class="purple" bon-gi bon-gi-area="a"></div>
+      <div class="yellow" bon-gi bon-gi-area="b"></div>
+      <div class="green" bon-gi bon-gi-area="c"></div>
+      <div class="pink" bon-gi bon-gi-area="d"></div>
+    </div>
+
+    <h3>Responsive grid layout</h3>
+
+    <h4>Code</h4>
+
+    <pre>
+&lt;div <strong>bon-g
+     bon-g-cols="1"
+     bon-g-cols-md="30% 1fr"
+     bon-g-rows="20% 30% 1fr 10%"
+     bon-g-rows-md="20% 1fr 10%"
+     bon-g-area="'a' 'b' 'c' 'd'"
+     bon-g-area-md="'a a' 'b c' 'd d'"</strong>&gt;
+  &lt;div class="purple" <strong>bon-gi bon-gi-area="a"</strong>&gt;&lt;/div&gt;
+  &lt;div class="yellow" <strong>bon-gi bon-gi-area="b"</strong>&gt;&lt;/div&gt;
+  &lt;div class="green" <strong>bon-gi bon-gi-area="c"</strong>&gt;&lt;/div&gt;
+  &lt;div class="pink" <strong>bon-gi bon-gi-area="d"</strong>&gt;&lt;/div&gt;
 &lt;/div&gt;</pre>
 
     <h4>Preview (Resize the window to see the changes)</h4>
 
     <div id="responsive-grid-example" class="canvas"
-         bon-grid
-         bon-grid-cols="1"
-         bon-grid-cols-md="30% 1fr"
-         bon-grid-rows="20% 30% 1fr 10%"
-         bon-grid-rows-md="20% 1fr 10%"
-         bon-grid-area="'a' 'b' 'c' 'd'"
-         bon-grid-area-md="'a a' 'b c' 'd d'">
-      <div class="purple" bon-grid-item bon-grid-item-area="a"></div>
-      <div class="yellow" bon-grid-item bon-grid-item-area="b"></div>
-      <div class="green" bon-grid-item bon-grid-item-area="c"></div>
-      <div class="pink" bon-grid-item bon-grid-item-area="d"></div>
+         bon-g
+         bon-g-cols="1"
+         bon-g-cols-md="30% 1fr"
+         bon-g-rows="20% 30% 1fr 10%"
+         bon-g-rows-md="20% 1fr 10%"
+         bon-g-area="'a' 'b' 'c' 'd'"
+         bon-g-area-md="'a a' 'b c' 'd d'">
+      <div class="purple" bon-gi bon-gi-area="a"></div>
+      <div class="yellow" bon-gi bon-gi-area="b"></div>
+      <div class="green" bon-gi bon-gi-area="c"></div>
+      <div class="pink" bon-gi bon-gi-area="d"></div>
     </div>
 
     <h2>Mixing grid and flex</h2>
 
+    <h4>Code</h4>
+
+    <pre>
+&lt;div <strong>bon-g
+     bon-g-cols="1"
+     bon-g-cols-md="30% 1fr"
+     bon-g-rows="20% 30% 1fr 10%"
+     bon-g-rows-md="20% 1fr 10%"
+     bon-g-area="'a' 'b' 'c' 'd'"
+     bon-g-area-md="'a a' 'b c' 'd d'"</strong>&gt;
+
+  &lt;div class="purple"
+       <strong>bon-gi
+       bon-gi-area="a"
+       bon-f
+       bon-f-direction="row"
+       bon-f-align-items="center"</strong>&gt;
+      &lt;div class="grey"&gt;&lt;/div&gt;
+      &lt;div class="grey"&gt;&lt;/div&gt;
+      &lt;div class="empty" <strong>bon-fi bon-fi-grow="1"</strong>&gt;&lt;/div&gt;
+      &lt;div class="grey"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="yellow"
+       <strong>bon-gi
+       bon-gi-area="b"
+       bon-f
+       bon-f-direction="column"</strong>&gt;
+    &lt;div class="grey" <strong>bon-fi bon-fi-grow="1"</strong>&gt;&lt;/div&gt;
+    &lt;div class="grey" <strong>bon-fi bon-fi-grow="1"</strong>&gt;&lt;/div&gt;
+    &lt;div class="grey" <strong>bon-fi bon-fi-grow="1"</strong>&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="green"
+      <strong>bon-gi
+       bon-gi-area="c"
+       bon-f
+       bon-f-direction-md="column"</strong>&gt;
+    &lt;div class="grey" <strong>bon-fi bon-fi-grow="1"</strong>&gt;&lt;/div&gt;
+    &lt;div class="grey" <strong>bon-fi bon-fi-grow="2"</strong>&gt;&lt;/div&gt;
+    &lt;div class="grey" <strong>bon-fi bon-fi-grow="1"</strong>&gt;&lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="pink" <strong>bon-gi bon-gi-area="d"</strong>&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>
+
+    <h4>Preview</h4>
+
+    <div id="mixing-grid-and-flex-example" class="canvas"
+         bon-g
+         bon-g-cols="1"
+         bon-g-cols-md="30% 1fr"
+         bon-g-rows="20% 30% 1fr 10%"
+         bon-g-rows-md="20% 1fr 10%"
+         bon-g-area="'a' 'b' 'c' 'd'"
+         bon-g-area-md="'a a' 'b c' 'd d'">
+
+      <div class="purple"
+           bon-gi
+           bon-gi-area="a"
+           bon-f
+           bon-f-direction="row"
+           bon-f-align-items="center">
+        <div class="grey"></div>
+        <div class="grey"></div>
+        <div class="empty" bon-fi bon-fi-grow="1"></div>
+        <div class="grey"></div>
+      </div>
+
+      <div class="yellow"
+           bon-gi
+           bon-gi-area="b"
+           bon-f
+           bon-f-direction="column">
+        <div class="grey" bon-fi bon-fi-grow="1"></div>
+        <div class="grey" bon-fi bon-fi-grow="1"></div>
+        <div class="grey" bon-fi bon-fi-grow="1"></div>
+      </div>
+
+      <div class="green" bon-gi bon-gi-area="c" bon-f bon-f-direction-md="column">
+        <div class="grey" bon-fi bon-fi-grow="1"></div>
+        <div class="grey" bon-fi bon-fi-grow="2"></div>
+        <div class="grey" bon-fi bon-fi-grow="1"></div>
+      </div>
+
+      <div class="pink" bon-gi bon-gi-area="d"></div>
+    </div>
+
+    <h2>Breakpoint change handler</h2>
+
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+      Lorem ipsum dolor....
     </p>
 
-    <h2>Real world example</h2>
+    <h2>Media-Size Watcher Service</h2>
 
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+      Lorem ipsum dolor....
     </p>
 
     <h2>API</h2>
 
+    <h3>Flex Directives</h3>
+
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+      You can use <var>bon-f</var> and <var>bon-fi</var> directives to do flex layout system for your pages.
     </p>
+
+    <p>
+      Below tables lists the properties of both the directives.
+    </p>
+
+    <table>
+      <caption>Properties of flex container directive <var>bon-f</var></caption>
+      <thead>
+      <tr>
+        <th>Property Name</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>sd</td>
+        <td>asd</td>
+        <td>ad</td>
+        <td>asdsad</td>
+      </tr>
+      </tbody>
+    </table>
+
   </main>
 </div>

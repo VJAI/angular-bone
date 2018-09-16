@@ -14,6 +14,7 @@
       .logo {
         font-size: 3.5rem;
         font-family: 'Fredoka One', cursive;
+        letter-spacing: 1px;
 
         img {
           position: relative;
@@ -23,6 +24,7 @@
       }
 
       .github {
+        color: #fff;
         margin-top: 1rem;
       }
     }
@@ -54,9 +56,11 @@
             display: block;
             text-align: center;
             transition: all 0.25s;
+            color: #666;
 
             &:hover {
               background-color: #fff;
+              text-decoration: none;
             }
           }
         }
@@ -83,10 +87,10 @@
       border-radius: 5px;
       padding: 10px;
 
-      div {
+      div:not(.empty) {
         margin: 5px;
         border-radius: 5px;
-        box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
       }
     }
 
@@ -106,12 +110,29 @@
       background-color: #a07df2;
     }
 
+    .grey {
+      background-color: #eee;
+    }
+
     #simple-flex-example, #responsive-flex-example {
       height: 300px;
     }
 
-    #simple-grid-example, #responsive-grid-example {
+    #simple-grid-example, #responsive-grid-example, #mixing-grid-and-flex-example {
       height: 500px;
+    }
+
+    #mixing-grid-and-flex-example {
+      .purple {
+        .grey {
+          width: 100px;
+          height: 20px;
+        }
+      }
+
+      .yellow, .green {
+        padding: 20px;
+      }
     }
   }
 }

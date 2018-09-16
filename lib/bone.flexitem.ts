@@ -10,83 +10,83 @@ export interface FlexItemStyleProps {
 }
 
 @Directive({
-  selector: '[bon-flex-item]'
+  selector: '[bon-fi]'
 })
 export class BoneFlexItem extends BoneBase {
 
-  @Input('bon-flex-item-order')
+  @Input('bon-fi-order')
   public order: number;
 
-  @Input('bon-flex-item-grow')
+  @Input('bon-fi-grow')
   public grow: number;
 
-  @Input('bon-flex-item-shrink')
+  @Input('bon-fi-shrink')
   public shrink: number;
 
-  @Input('bon-flex-item-basis')
+  @Input('bon-fi-basis')
   public basis: number | string;
 
-  @Input('bon-flex-item-align')
+  @Input('bon-fi-align')
   public align: string;
 
-  @Input('bon-flex-item-order-sm')
+  @Input('bon-fi-order-sm')
   public orderSm: number;
 
-  @Input('bon-flex-item-grow-sm')
+  @Input('bon-fi-grow-sm')
   public growSm: number;
 
-  @Input('bon-flex-item-shrink-sm')
+  @Input('bon-fi-shrink-sm')
   public shrinkSm: number;
 
-  @Input('bon-flex-item-basis-sm')
+  @Input('bon-fi-basis-sm')
   public basisSm: number | string;
 
-  @Input('bon-flex-item-align-sm')
+  @Input('bon-fi-align-sm')
   public alignSm: string;
 
-  @Input('bon-flex-item-order-md')
+  @Input('bon-fi-order-md')
   public orderMd: number;
 
-  @Input('bon-flex-item-grow-md')
+  @Input('bon-fi-grow-md')
   public growMd: number;
 
-  @Input('bon-flex-item-shrink-md')
+  @Input('bon-fi-shrink-md')
   public shrinkMd: number;
 
-  @Input('bon-flex-item-basis-md')
+  @Input('bon-fi-basis-md')
   public basisMd: number | string;
 
-  @Input('bon-flex-item-align-md')
+  @Input('bon-fi-align-md')
   public alignMd: string;
 
-  @Input('bon-flex-item-order-lg')
+  @Input('bon-fi-order-lg')
   public orderLg: number;
 
-  @Input('bon-flex-item-grow-lg')
+  @Input('bon-fi-grow-lg')
   public growLg: number;
 
-  @Input('bon-flex-item-shrink-lg')
+  @Input('bon-fi-shrink-lg')
   public shrinkLg: number;
 
-  @Input('bon-flex-item-basis-lg')
+  @Input('bon-fi-basis-lg')
   public basisLg: number | string;
 
-  @Input('bon-flex-item-align-lg')
+  @Input('bon-fi-align-lg')
   public alignLg: string;
 
-  @Input('bon-flex-item-order-xl')
+  @Input('bon-fi-order-xl')
   public orderXl: number;
 
-  @Input('bon-flex-item-grow-xl')
+  @Input('bon-fi-grow-xl')
   public growXl: number;
 
-  @Input('bon-flex-item-shrink-xl')
+  @Input('bon-fi-shrink-xl')
   public shrinkXl: number;
 
-  @Input('bon-flex-item-basis-xl')
+  @Input('bon-fi-basis-xl')
   public basisXl: number | string;
 
-  @Input('bon-flex-item-align-xl')
+  @Input('bon-fi-align-xl')
   public alignXl: string;
 
   private currentStyles: FlexItemStyleProps = null;

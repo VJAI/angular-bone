@@ -16,13 +16,13 @@ export interface GridContainerStyleProps {
 }
 
 @Directive({
-  selector: '[bon-grid]'
+  selector: '[bon-g]'
 })
 export class BoneGrid extends BoneBase {
 
   private _display = 'grid';
 
-  @Input('bon-grid')
+  @Input('bon-g')
   public get display(): string {
     return this._display;
   }
@@ -31,42 +31,42 @@ export class BoneGrid extends BoneBase {
     this._display = display || 'grid';
   }
 
-  @Input('bon-grid-cols')
+  @Input('bon-g-cols')
   public cols: number | Array<number | string> | string;
 
-  @Input('bon-grid-rows')
+  @Input('bon-g-rows')
   public rows: number | Array<number | string> | string;
 
-  @Input('bon-grid-area')
+  @Input('bon-g-area')
   public area: Array<Array<string>> | string;
 
-  @Input('bon-grid-auto-cols')
+  @Input('bon-g-auto-cols')
   public autoCols: number | string;
 
-  @Input('bon-grid-auto-rows')
+  @Input('bon-g-auto-rows')
   public autoRows: number | string;
 
-  @Input('bon-grid-auto-flow')
+  @Input('bon-g-auto-flow')
   public autoFlow: string;
 
-  @Input('bon-grid-gap')
+  @Input('bon-g-gap')
   public gridGap: number | Array<number | string> | string;
 
-  @Input('bon-grid-justify-items')
+  @Input('bon-g-justify-items')
   public justifyItems: string;
 
-  @Input('bon-grid-align-items')
+  @Input('bon-g-align-items')
   public alignItems: string;
 
-  @Input('bon-grid-justify-content')
+  @Input('bon-g-justify-content')
   public justifyContent: string;
 
-  @Input('bon-grid-align-content')
+  @Input('bon-g-align-content')
   public alignContent: string;
 
   private _displaySm = 'grid';
 
-  @Input('bon-grid-sm')
+  @Input('bon-g-sm')
   public get displaySm(): string {
     return this._displaySm;
   }
@@ -75,42 +75,42 @@ export class BoneGrid extends BoneBase {
     this._displaySm = display || 'grid';
   }
 
-  @Input('bon-grid-cols-sm')
+  @Input('bon-g-cols-sm')
   public colsSm: number | Array<number | string> | string;
 
-  @Input('bon-grid-rows-sm')
+  @Input('bon-g-rows-sm')
   public rowsSm: number | Array<number | string> | string;
 
-  @Input('bon-grid-area-sm')
+  @Input('bon-g-area-sm')
   public areaSm: Array<Array<string>> | string;
 
-  @Input('bon-grid-auto-cols-sm')
+  @Input('bon-g-auto-cols-sm')
   public autoColsSm: number | string;
 
-  @Input('bon-grid-auto-rows-sm')
+  @Input('bon-g-auto-rows-sm')
   public autoRowsSm: number | string;
 
-  @Input('bon-grid-auto-flow-sm')
+  @Input('bon-g-auto-flow-sm')
   public autoFlowSm: string;
 
-  @Input('bon-grid-gap-sm')
+  @Input('bon-g-gap-sm')
   public gridGapSm: number | Array<number | string> | string;
 
-  @Input('bon-grid-justify-items-sm')
+  @Input('bon-g-justify-items-sm')
   public justifyItemsSm: string;
 
-  @Input('bon-grid-align-items-sm')
+  @Input('bon-g-align-items-sm')
   public alignItemsSm: string;
 
-  @Input('bon-grid-justify-content-sm')
+  @Input('bon-g-justify-content-sm')
   public justifyContentSm: string;
 
-  @Input('bon-grid-align-content-sm')
+  @Input('bon-g-align-content-sm')
   public alignContentSm: string;
 
   private _displayMd = 'grid';
 
-  @Input('bon-grid-md')
+  @Input('bon-g-md')
   public get displayMd(): string {
     return this._displayMd;
   }
@@ -119,42 +119,42 @@ export class BoneGrid extends BoneBase {
     this._displayMd = display || 'grid';
   }
 
-  @Input('bon-grid-cols-md')
+  @Input('bon-g-cols-md')
   public colsMd: number | Array<number | string> | string;
 
-  @Input('bon-grid-rows-md')
+  @Input('bon-g-rows-md')
   public rowsMd: number | Array<number | string> | string;
 
-  @Input('bon-grid-area-md')
+  @Input('bon-g-area-md')
   public areaMd: Array<Array<string>> | string;
 
-  @Input('bon-grid-auto-cols-md')
+  @Input('bon-g-auto-cols-md')
   public autoColsMd: number | string;
 
-  @Input('bon-grid-auto-rows-md')
+  @Input('bon-g-auto-rows-md')
   public autoRowsMd: number | string;
 
-  @Input('bon-grid-auto-flow-md')
+  @Input('bon-g-auto-flow-md')
   public autoFlowMd: string;
 
-  @Input('bon-grid-gap-md')
+  @Input('bon-g-gap-md')
   public gridGapMd: number | Array<number | string> | string;
 
-  @Input('bon-grid-justify-items-md')
+  @Input('bon-g-justify-items-md')
   public justifyItemsMd: string;
 
-  @Input('bon-grid-align-items-md')
+  @Input('bon-g-align-items-md')
   public alignItemsMd: string;
 
-  @Input('bon-grid-justify-content-md')
+  @Input('bon-g-justify-content-md')
   public justifyContentMd: string;
 
-  @Input('bon-grid-align-content-md')
+  @Input('bon-g-align-content-md')
   public alignContentMd: string;
 
   private _displayLg = 'grid';
 
-  @Input('bon-grid-lg')
+  @Input('bon-g-lg')
   public get displayLg(): string {
     return this._displayLg;
   }
@@ -163,42 +163,42 @@ export class BoneGrid extends BoneBase {
     this._displayLg = display || 'grid';
   }
 
-  @Input('bon-grid-cols-lg')
+  @Input('bon-g-cols-lg')
   public colsLg: number | Array<number | string> | string;
 
-  @Input('bon-grid-rows-lg')
+  @Input('bon-g-rows-lg')
   public rowsLg: number | Array<number | string> | string;
 
-  @Input('bon-grid-area-lg')
+  @Input('bon-g-area-lg')
   public areaLg: Array<Array<string>> | string;
 
-  @Input('bon-grid-auto-cols-lg')
+  @Input('bon-g-auto-cols-lg')
   public autoColsLg: number | string;
 
-  @Input('bon-grid-auto-rows-lg')
+  @Input('bon-g-auto-rows-lg')
   public autoRowsLg: number | string;
 
-  @Input('bon-grid-auto-flow-lg')
+  @Input('bon-g-auto-flow-lg')
   public autoFlowLg: string;
 
-  @Input('bon-grid-gap-lg')
+  @Input('bon-g-gap-lg')
   public gridGapLg: number | Array<number | string> | string;
 
-  @Input('bon-grid-justify-items-lg')
+  @Input('bon-g-justify-items-lg')
   public justifyItemsLg: string;
 
-  @Input('bon-grid-align-items-lg')
+  @Input('bon-g-align-items-lg')
   public alignItemsLg: string;
 
-  @Input('bon-grid-justify-content-lg')
+  @Input('bon-g-justify-content-lg')
   public justifyContentLg: string;
 
-  @Input('bon-grid-align-content-lg')
+  @Input('bon-g-align-content-lg')
   public alignContentLg: string;
 
   private _displayXl = 'grid';
 
-  @Input('bon-grid-xl')
+  @Input('bon-g-xl')
   public get displayXl(): string {
     return this._displayXl;
   }
@@ -207,37 +207,37 @@ export class BoneGrid extends BoneBase {
     this._displayXl = display || 'grid';
   }
 
-  @Input('bon-grid-cols-xl')
+  @Input('bon-g-cols-xl')
   public colsXl: number | Array<number | string> | string;
 
-  @Input('bon-grid-rows-xl')
+  @Input('bon-g-rows-xl')
   public rowsXl: number | Array<number | string> | string;
 
-  @Input('bon-grid-area-xl')
+  @Input('bon-g-area-xl')
   public areaXl: Array<Array<string>> | string;
 
-  @Input('bon-grid-auto-cols-xl')
+  @Input('bon-g-auto-cols-xl')
   public autoColsXl: number | string;
 
-  @Input('bon-grid-auto-rows-xl')
+  @Input('bon-g-auto-rows-xl')
   public autoRowsXl: number | string;
 
-  @Input('bon-grid-auto-flow-xl')
+  @Input('bon-g-auto-flow-xl')
   public autoFlowXl: string;
 
-  @Input('bon-grid-gap-xl')
+  @Input('bon-g-gap-xl')
   public gridGapXl: number | Array<number | string> | string;
 
-  @Input('bon-grid-justify-items-xl')
+  @Input('bon-g-justify-items-xl')
   public justifyItemsXl: string;
 
-  @Input('bon-grid-align-items-xl')
+  @Input('bon-g-align-items-xl')
   public alignItemsXl: string;
 
-  @Input('bon-grid-justify-content-xl')
+  @Input('bon-g-justify-content-xl')
   public justifyContentXl: string;
 
-  @Input('bon-grid-align-content-xl')
+  @Input('bon-g-align-content-xl')
   public alignContentXl: string;
 
   private currentStyles: GridContainerStyleProps = null;

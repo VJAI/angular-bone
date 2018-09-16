@@ -11,13 +11,13 @@ export interface FlexContainerStyleProps {
 }
 
 @Directive({
-  selector: '[bon-flex]'
+  selector: '[bon-f]'
 })
 export class BoneFlex extends BoneBase {
 
   private _display = 'flex';
 
-  @Input('bon-flex')
+  @Input('bon-f')
   public get display(): string {
     return this._display;
   }
@@ -26,24 +26,24 @@ export class BoneFlex extends BoneBase {
     this._display = display || 'flex';
   }
 
-  @Input('bon-flex-direction')
+  @Input('bon-f-direction')
   public direction: string;
 
-  @Input('bon-flex-wrap')
+  @Input('bon-f-wrap')
   public wrap: string;
 
-  @Input('bon-flex-justify-content')
+  @Input('bon-f-justify-content')
   public justifyContent: string;
 
-  @Input('bon-flex-align-items')
+  @Input('bon-f-align-items')
   public alignItems: string;
 
-  @Input('bon-flex-align-content')
+  @Input('bon-f-align-content')
   public alignContent: string;
 
   private _displaySm = 'flex';
 
-  @Input('bon-flex-sm')
+  @Input('bon-f-sm')
   public get displaySm(): string {
     return this._displaySm;
   }
@@ -52,24 +52,24 @@ export class BoneFlex extends BoneBase {
     this._displaySm = display || 'flex';
   }
 
-  @Input('bon-flex-direction-sm')
+  @Input('bon-f-direction-sm')
   public directionSm: string;
 
-  @Input('bon-flex-wrap-sm')
+  @Input('bon-f-wrap-sm')
   public wrapSm: string;
 
-  @Input('bon-flex-justify-content-sm')
+  @Input('bon-f-justify-content-sm')
   public justifyContentSm: string;
 
-  @Input('bon-flex-align-items-sm')
+  @Input('bon-f-align-items-sm')
   public alignItemsSm: string;
 
-  @Input('bon-flex-align-content-sm')
+  @Input('bon-f-align-content-sm')
   public alignContentSm: string;
 
   private _displayMd = 'flex';
 
-  @Input('bon-flex-md')
+  @Input('bon-f-md')
   public get displayMd(): string {
     return this._displayMd;
   }
@@ -78,24 +78,24 @@ export class BoneFlex extends BoneBase {
     this._displayMd = display || 'flex';
   }
 
-  @Input('bon-flex-direction-md')
+  @Input('bon-f-direction-md')
   public directionMd: string;
 
-  @Input('bon-flex-wrap-md')
+  @Input('bon-f-wrap-md')
   public wrapMd: string;
 
-  @Input('bon-flex-justify-content-md')
+  @Input('bon-f-justify-content-md')
   public justifyContentMd: string;
 
-  @Input('bon-flex-align-items-md')
+  @Input('bon-f-align-items-md')
   public alignItemsMd: string;
 
-  @Input('bon-flex-align-content-md')
+  @Input('bon-f-align-content-md')
   public alignContentMd: string;
 
   private _displayLg = 'flex';
 
-  @Input('bon-flex-lg')
+  @Input('bon-f-lg')
   public get displayLg(): string {
     return this._displayLg;
   }
@@ -104,24 +104,24 @@ export class BoneFlex extends BoneBase {
     this._displayLg = display || 'flex';
   }
 
-  @Input('bon-flex-direction-lg')
+  @Input('bon-f-direction-lg')
   public directionLg: string;
 
-  @Input('bon-flex-wrap-lg')
+  @Input('bon-f-wrap-lg')
   public wrapLg: string;
 
-  @Input('bon-flex-justify-content-lg')
+  @Input('bon-f-justify-content-lg')
   public justifyContentLg: string;
 
-  @Input('bon-flex-align-items-lg')
+  @Input('bon-f-align-items-lg')
   public alignItemsLg: string;
 
-  @Input('bon-flex-align-content-lg')
+  @Input('bon-f-align-content-lg')
   public alignContentLg: string;
 
   private _displayXl = 'flex';
 
-  @Input('bon-flex-xl')
+  @Input('bon-f-xl')
   public get displayXl(): string {
     return this._displayXl;
   }
@@ -130,19 +130,19 @@ export class BoneFlex extends BoneBase {
     this._displayXl = display || 'flex';
   }
 
-  @Input('bon-flex-direction-xl')
+  @Input('bon-f-direction-xl')
   public directionXl: string;
 
-  @Input('bon-flex-wrap-xl')
+  @Input('bon-f-wrap-xl')
   public wrapXl: string;
 
-  @Input('bon-flex-justify-content-xl')
+  @Input('bon-f-justify-content-xl')
   public justifyContentXl: string;
 
-  @Input('bon-flex-align-items-xl')
+  @Input('bon-f-align-items-xl')
   public alignItemsXl: string;
 
-  @Input('bon-flex-align-content-xl')
+  @Input('bon-f-align-content-xl')
   public alignContentXl: string;
 
   private currentStyles: FlexContainerStyleProps = null;

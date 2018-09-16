@@ -10,83 +10,83 @@ export interface GridItemStyleProps {
 }
 
 @Directive({
-  selector: '[bon-grid-item]'
+  selector: '[bon-gi]'
 })
 export class BoneGridItem extends BoneBase {
 
-  @Input('bon-grid-item-col')
+  @Input('bon-gi-col')
   public col: number | [number | string, number | string] | string;
 
-  @Input('bon-grid-item-row')
+  @Input('bon-gi-row')
   public row: number | [number | string, number | string] | string;
 
-  @Input('bon-grid-item-area')
+  @Input('bon-gi-area')
   public area: [number | string, number | string, number | string, number | string] | string;
 
-  @Input('bon-grid-item-justify')
+  @Input('bon-gi-justify')
   public justify: string;
 
-  @Input('bon-grid-item-align')
+  @Input('bon-gi-align')
   public align: string;
 
-  @Input('bon-grid-item-col-sm')
+  @Input('bon-gi-col-sm')
   public colSm: number | [number | string, number | string] | string;
 
-  @Input('bon-grid-item-row-sm')
+  @Input('bon-gi-row-sm')
   public rowSm: number | [number | string, number | string] | string;
 
-  @Input('bon-grid-item-area-sm')
+  @Input('bon-gi-area-sm')
   public areaSm: [number | string, number | string, number | string, number | string] | string;
 
-  @Input('bon-grid-item-justify-sm')
+  @Input('bon-gi-justify-sm')
   public justifySm: string;
 
-  @Input('bon-grid-item-align-sm')
+  @Input('bon-gi-align-sm')
   public alignSm: string;
 
-  @Input('bon-grid-item-col-md')
+  @Input('bon-gi-col-md')
   public colMd: string;
 
-  @Input('bon-grid-item-row-md')
+  @Input('bon-gi-row-md')
   public rowMd: number | [number | string, number | string] | string;
 
-  @Input('bon-grid-item-area-md')
+  @Input('bon-gi-area-md')
   public areaMd: [number | string, number | string, number | string, number | string] | string;
 
-  @Input('bon-grid-item-justify-md')
+  @Input('bon-gi-justify-md')
   public justifyMd: string;
 
-  @Input('bon-grid-item-align-md')
+  @Input('bon-gi-align-md')
   public alignMd: string;
 
-  @Input('bon-grid-item-col-lg')
+  @Input('bon-gi-col-lg')
   public colLg: string;
 
-  @Input('bon-grid-item-row-lg')
+  @Input('bon-gi-row-lg')
   public rowLg: number | [number | string, number | string] | string;
 
-  @Input('bon-grid-item-area-lg')
+  @Input('bon-gi-area-lg')
   public areaLg: [number | string, number | string, number | string, number | string] | string;
 
-  @Input('bon-grid-item-justify-lg')
+  @Input('bon-gi-justify-lg')
   public justifyLg: string;
 
-  @Input('bon-grid-item-align-lg')
+  @Input('bon-gi-align-lg')
   public alignLg: string;
 
-  @Input('bon-grid-item-col-xl')
+  @Input('bon-gi-col-xl')
   public colXl: string;
 
-  @Input('bon-grid-item-row-xl')
+  @Input('bon-gi-row-xl')
   public rowXl: number | [number | string, number | string] | string;
 
-  @Input('bon-grid-item-area-xl')
+  @Input('bon-gi-area-xl')
   public areaXl: [number | string, number | string, number | string, number | string] | string;
 
-  @Input('bon-grid-item-justify-xl')
+  @Input('bon-gi-justify-xl')
   public justifyXl: string;
 
-  @Input('bon-grid-item-align-xl')
+  @Input('bon-gi-align-xl')
   public alignXl: string;
 
   private currentStyles: GridItemStyleProps = null;
