@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./demo/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\"\n     bon-grid\n     bon-grid-cols=\"1\"\n     bon-grid-cols-md=\"25% 1fr\"\n     bon-grid-rows=\"12.5rem auto 1fr\"\n     bon-grid-rows-md=\"12.5rem 1fr\"\n     bon-grid-area=\"'h' 'a' 'm'\"\n     bon-grid-area-md=\"'h h' 'a m'\">\n\n  <header bon-grid-item bon-grid-item-area=\"h\">\n    <div bon-flex bon-flex-align-items=\"center\">\n      <div bon-flex-item bon-flex-item-grow=\"1\">\n        <h1 class=\"logo\">angular<img src=\"assets/bone.png\" />bone</h1>\n        <p>Provides structure to your angular apps using CSS3 Grid and Flex</p>\n      </div>\n      <a class=\"github\" bon-flex-item bon-flex-item-align=\"flex-start\" target=\"_blank\" href=\"https://github.com/vjai/angular-bone\">GITHUB</a>\n    </div>\n  </header>\n\n  <aside #aside [class.sticky]=\"isSticky\" bon-grid-item bon-grid-item-area=\"a\">\n    <nav>\n      <h4>Table of Contents</h4>\n\n      <ul>\n        <li><a href=\"#intro\">Introduction</a></li>\n        <li><a href=\"#simple-flex\">Simple flex layout</a></li>\n        <li><a href=\"#\">Simple grid layout</a></li>\n        <li><a href=\"#\">Responsive flex layout</a></li>\n        <li><a href=\"#\">Responsive grid layout</a></li>\n        <li><a href=\"#\">Mixing grid and flex</a></li>\n        <li><a href=\"#\">Real world example</a></li>\n        <li><a href=\"#\">API</a></li>\n      </ul>\n    </nav>\n  </aside>\n\n  <main bon-grid-item bon-grid-item-area=\"m\">\n    <h1>angular-bone</h1>\n\n    <h2 id=\"intro\">Introduction</h2>\n\n    <p>\n      <a href=\"#\">angular-bone</a> helps to build page layouts using CSS3 Grid and Flex concepts for your angular apps. It\n      provides you a set of directives that helps to build responsive layouts in a declarative way.\n    </p>\n\n    <h2>Simple flex layout</h2>\n\n    <h4>Code</h4>\n\n    <pre>\n&lt;div <strong>bon-flex</strong>&gt;\n  &lt;div class=\"green\" <strong>bon-flex-item bon-flex-item-grow=\"1\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"yellow\" <strong>bon-flex-item bon-flex-item-grow=\"1\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"pink\" <strong>bon-flex-item bon-flex-item-grow=\"2\"</strong>&gt;&lt;/div&gt;\n&lt;/div&gt;</pre>\n\n    <h4>Preview</h4>\n\n    <div id=\"simple-flex-example\" class=\"canvas\" bon-flex>\n      <div class=\"green\" bon-flex-item bon-flex-item-grow=\"1\"></div>\n      <div class=\"yellow\" bon-flex-item bon-flex-item-grow=\"1\"></div>\n      <div class=\"pink\" bon-flex-item bon-flex-item-grow=\"2\"></div>\n    </div>\n\n    <h2>Simple grid layout</h2>\n\n    <h4>Code</h4>\n\n    <pre>\n&lt;div id=\"simple-grid-example\" class=\"canvas\"\n      <strong>bon-grid bon-grid-cols=\"30% 1fr\"\n      bon-grid-rows=\"20% 1fr 10%\"\n      bon-grid-area=\"'a a' 'b c' 'd d'\"</strong>&gt;\n\n  &lt;div class=\"purple\" <strong>bon-grid-item bon-grid-item-area=\"a\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"yellow\" <strong>bon-grid-item bon-grid-item-area=\"b\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"green\" <strong>bon-grid-item bon-grid-item-area=\"c\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"pink\" <strong>bon-grid-item bon-grid-item-area=\"d\"</strong>&gt;&lt;/div&gt;\n&lt;/div&gt;</pre>\n\n    <h4>Preview</h4>\n\n    <div id=\"simple-grid-example\" class=\"canvas\" bon-grid bon-grid-cols=\"30% 1fr\" bon-grid-rows=\"20% 1fr 10%\" bon-grid-area=\"'a a' 'b c' 'd d'\">\n      <div class=\"purple\" bon-grid-item bon-grid-item-area=\"a\"></div>\n      <div class=\"yellow\" bon-grid-item bon-grid-item-area=\"b\"></div>\n      <div class=\"green\" bon-grid-item bon-grid-item-area=\"c\"></div>\n      <div class=\"pink\" bon-grid-item bon-grid-item-area=\"d\"></div>\n    </div>\n\n    <h2>Responsive flex layout</h2>\n\n    <h4>Code</h4>\n\n    <pre>\n&lt;div <strong>bon-flex bon-flex-direction-md=\"column\" bon-flex-direction-md=\"row\"</strong>&gt;\n  &lt;div class=\"green\" <strong>bon-flex-item bon-flex-item-grow=\"1\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"yellow\" <strong>bon-flex-item bon-flex-item-grow=\"1\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"pink\" <strong>bon-flex-item bon-flex-item-grow=\"1\" bon-flex-item-grow-md=\"2\"</strong>&gt;&lt;/div&gt;\n&lt;/div&gt;</pre>\n\n    <h4>Preview (Resize the window to see the changes)</h4>\n\n    <div id=\"responsive-flex-example\" class=\"canvas\" bon-flex bon-flex-direction=\"column\" bon-flex-direction-md=\"row\">\n      <div class=\"green\" bon-flex-item bon-flex-item-grow=\"1\"></div>\n      <div class=\"yellow\" bon-flex-item bon-flex-item-grow=\"1\"></div>\n      <div class=\"pink\" bon-flex-item bon-flex-item-grow=\"1\" bon-flex-item-grow-md=\"2\"></div>\n    </div>\n\n    <h2>Responsive grid layout</h2>\n\n    <h4>Code</h4>\n\n    <pre>\n&lt;div id=\"simple-grid-example\" class=\"canvas\"\n      <strong>bon-grid bon-grid-cols=\"1\"\n      bon-grid-cols-md=\"30% 1fr\"\n      bon-grid-rows=\"20% 30% 1fr 10%\"\n      bon-grid-rows-md=\"20% 1fr 10%\"\n      bon-grid-area=\"'a' 'b' 'c' 'd'\"\n      bon-grid-area-md=\"'a a' 'b c' 'd d'\"</strong>&gt;\n\n  &lt;div class=\"purple\" <strong>bon-grid-item bon-grid-item-area=\"a\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"yellow\" <strong>bon-grid-item bon-grid-item-area=\"b\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"green\" <strong>bon-grid-item bon-grid-item-area=\"c\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"pink\" <strong>bon-grid-item bon-grid-item-area=\"d\"</strong>&gt;&lt;/div&gt;\n&lt;/div&gt;</pre>\n\n    <h4>Preview (Resize the window to see the changes)</h4>\n\n    <div id=\"responsive-grid-example\" class=\"canvas\"\n         bon-grid\n         bon-grid-cols=\"1\"\n         bon-grid-cols-md=\"30% 1fr\"\n         bon-grid-rows=\"20% 30% 1fr 10%\"\n         bon-grid-rows-md=\"20% 1fr 10%\"\n         bon-grid-area=\"'a' 'b' 'c' 'd'\"\n         bon-grid-area-md=\"'a a' 'b c' 'd d'\">\n      <div class=\"purple\" bon-grid-item bon-grid-item-area=\"a\"></div>\n      <div class=\"yellow\" bon-grid-item bon-grid-item-area=\"b\"></div>\n      <div class=\"green\" bon-grid-item bon-grid-item-area=\"c\"></div>\n      <div class=\"pink\" bon-grid-item bon-grid-item-area=\"d\"></div>\n    </div>\n\n    <h2>Mixing grid and flex</h2>\n\n    <p>\n      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.\n    </p>\n\n    <h2>Real world example</h2>\n\n    <p>\n      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.\n    </p>\n\n    <h2>API</h2>\n\n    <p>\n      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.\n    </p>\n  </main>\n</div>\n"
+module.exports = "<div class=\"container\"\n     bon-g\n     bon-g-cols=\"1\"\n     bon-g-cols-md=\"25% 1fr\"\n     bon-g-rows=\"12.5rem auto 1fr\"\n     bon-g-rows-md=\"12.5rem 1fr\"\n     bon-g-area=\"'h' 'a' 'm'\"\n     bon-g-area-md=\"'h h' 'a m'\">\n\n  <header bon-gi bon-gi-area=\"h\">\n    <div bon-f bon-f-align-items=\"center\">\n      <div bon-fi bon-fi-grow=\"1\">\n        <h1 class=\"logo\">angular<img src=\"assets/bone.png\" />bone</h1>\n        <p>Provides structure to your angular apps using CSS3 Grid and Flex</p>\n      </div>\n      <a class=\"github\" bon-fi bon-fi-align=\"flex-start\" target=\"_blank\" href=\"https://github.com/vjai/angular-bone\">GITHUB</a>\n    </div>\n  </header>\n\n  <aside #aside [class.sticky]=\"isSticky\" bon-gi bon-gi-area=\"a\">\n    <nav>\n      <h4>Table of Contents</h4>\n\n      <ul>\n        <li><a href=\"#intro\">Introduction</a></li>\n        <li><a href=\"#simple-flex\">Simple flex layout</a></li>\n        <li><a href=\"#\">Simple grid layout</a></li>\n        <li><a href=\"#\">Responsive flex layout</a></li>\n        <li><a href=\"#\">Responsive grid layout</a></li>\n        <li><a href=\"#\">Mixing grid and flex</a></li>\n        <li><a href=\"#\">Real world example</a></li>\n        <li><a href=\"#\">API</a></li>\n      </ul>\n    </nav>\n  </aside>\n\n  <main bon-gi bon-gi-area=\"m\">\n    <h1>angular-bone</h1>\n\n    <h2 id=\"intro\">Introduction</h2>\n\n    <p>\n      <a href=\"#\">angular-bone</a> helps to build page layouts using CSS3 Grid and Flex concepts for your angular apps. It\n      provides you a set of directives that helps to build responsive layouts in a <i>declarative way</i>.\n    </p>\n\n    <p>\n      As default, it follows <a target=\"_blank\" href=\"https://getbootstrap.com/docs/4.0/layout/grid/#grid-options\">bootstrap's breakpoint system</a> that allows you to configure layouts for 5 different screen sizes (Extra Small,\n      Small - sm, Medium - md, Large - lg and Extra Large - xl). It also follows mobile-first approach.\n    </p>\n\n    <p>\n      The library also provides you a media-size watcher service that you can use anywhere in your application to listen to the breakpoint\n      changes and act accordingly.\n    </p>\n\n    <h2>Flex Layouts</h2>\n\n    <p>\n      You can create flex layouts using two directives: <var>bon-f</var> and <var>bon-fi</var>.&nbsp;&nbsp;<var>bon-f</var> is used to\n      configure the properties of a flex container and <var>bon-fi</var> is used to configure the properties of a flex item.\n    </p>\n\n    <h3>Simple flex layout</h3>\n\n    <h4>Code</h4>\n\n    <pre>\n&lt;div <strong>bon-f</strong>&gt;\n  &lt;div class=\"green\" <strong>bon-fi bon-fi-grow=\"1\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"yellow\" <strong>bon-fi bon-fi-grow=\"1\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"pink\" <strong>bon-fi bon-fi-grow=\"2\"</strong>&gt;&lt;/div&gt;\n&lt;/div&gt;</pre>\n\n    <h4>Preview</h4>\n\n    <div id=\"simple-flex-example\" class=\"canvas\" bon-f>\n      <div class=\"green\" bon-fi bon-fi-grow=\"1\"></div>\n      <div class=\"yellow\" bon-fi bon-fi-grow=\"1\"></div>\n      <div class=\"pink\" bon-fi bon-fi-grow=\"2\"></div>\n    </div>\n\n    <h3>Responsive flex layout</h3>\n\n    <p>\n      You can configure the properties for a particular screen size by suffixing the media size abbreviation (sm, md, lg and xl) after the\n      property name. If you don't specify any suffix then it's assumed for the extra small screen. If you want the same\n      configuration for all the screen sizes then ignore the suffix.\n    </p>\n\n    <h4>Code</h4>\n\n    <pre>\n&lt;div <strong>bon-f\n     bon-f-direction-md=\"column\"\n     bon-f-direction-md=\"row\"</strong>&gt;\n  &lt;div class=\"green\" <strong>bon-fi bon-fi-grow=\"1\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"yellow\" <strong>bon-fi bon-fi-grow=\"1\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"pink\" <strong>bon-fi bon-fi-grow=\"1\" bon-fi-grow-md=\"2\"</strong>&gt;&lt;/div&gt;\n&lt;/div&gt;</pre>\n\n    <h4>Preview (Resize the window to see the changes)</h4>\n\n    <div id=\"responsive-flex-example\" class=\"canvas\" bon-f bon-f-direction=\"column\" bon-f-direction-md=\"row\">\n      <div class=\"green\" bon-fi bon-fi-grow=\"1\"></div>\n      <div class=\"yellow\" bon-fi bon-fi-grow=\"1\"></div>\n      <div class=\"pink\" bon-fi bon-fi-grow=\"1\" bon-fi-grow-md=\"2\"></div>\n    </div>\n\n    <h2>Grid Layouts</h2>\n\n    <p>\n      You can create awesome grid layouts using two directives: <var>bon-g</var> and <var>bon-gi</var>. <var>bon-g</var> is used to\n      configure the properties of a grid container and <var>bon-gi</var> is used to configure the properties of a grid item.\n    </p>\n\n    <h3>Simple grid layout</h3>\n\n    <h4>Code</h4>\n\n    <pre>\n&lt;div <strong>bon-g\n     bon-g-cols=\"30% 1fr\"\n     bon-g-rows=\"20% 1fr 10%\"\n     bon-g-area=\"'a a' 'b c' 'd d'\"</strong>&gt;\n  &lt;div class=\"purple\" <strong>bon-gi bon-gi-area=\"a\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"yellow\" <strong>bon-gi bon-gi-area=\"b\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"green\" <strong>bon-gi bon-gi-area=\"c\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"pink\" <strong>bon-gi bon-gi-area=\"d\"</strong>&gt;&lt;/div&gt;\n&lt;/div&gt;</pre>\n\n    <h4>Preview</h4>\n\n    <div id=\"simple-grid-example\" class=\"canvas\" bon-g bon-g-cols=\"30% 1fr\" bon-g-rows=\"20% 1fr 10%\" bon-g-area=\"'a a' 'b c' 'd d'\">\n      <div class=\"purple\" bon-gi bon-gi-area=\"a\"></div>\n      <div class=\"yellow\" bon-gi bon-gi-area=\"b\"></div>\n      <div class=\"green\" bon-gi bon-gi-area=\"c\"></div>\n      <div class=\"pink\" bon-gi bon-gi-area=\"d\"></div>\n    </div>\n\n    <h3>Responsive grid layout</h3>\n\n    <h4>Code</h4>\n\n    <pre>\n&lt;div <strong>bon-g\n     bon-g-cols=\"1\"\n     bon-g-cols-md=\"30% 1fr\"\n     bon-g-rows=\"20% 30% 1fr 10%\"\n     bon-g-rows-md=\"20% 1fr 10%\"\n     bon-g-area=\"'a' 'b' 'c' 'd'\"\n     bon-g-area-md=\"'a a' 'b c' 'd d'\"</strong>&gt;\n  &lt;div class=\"purple\" <strong>bon-gi bon-gi-area=\"a\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"yellow\" <strong>bon-gi bon-gi-area=\"b\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"green\" <strong>bon-gi bon-gi-area=\"c\"</strong>&gt;&lt;/div&gt;\n  &lt;div class=\"pink\" <strong>bon-gi bon-gi-area=\"d\"</strong>&gt;&lt;/div&gt;\n&lt;/div&gt;</pre>\n\n    <h4>Preview (Resize the window to see the changes)</h4>\n\n    <div id=\"responsive-grid-example\" class=\"canvas\"\n         bon-g\n         bon-g-cols=\"1\"\n         bon-g-cols-md=\"30% 1fr\"\n         bon-g-rows=\"20% 30% 1fr 10%\"\n         bon-g-rows-md=\"20% 1fr 10%\"\n         bon-g-area=\"'a' 'b' 'c' 'd'\"\n         bon-g-area-md=\"'a a' 'b c' 'd d'\">\n      <div class=\"purple\" bon-gi bon-gi-area=\"a\"></div>\n      <div class=\"yellow\" bon-gi bon-gi-area=\"b\"></div>\n      <div class=\"green\" bon-gi bon-gi-area=\"c\"></div>\n      <div class=\"pink\" bon-gi bon-gi-area=\"d\"></div>\n    </div>\n\n    <h2>Mixing grid and flex</h2>\n\n    <h4>Code</h4>\n\n    <pre>\n&lt;div <strong>bon-g\n     bon-g-cols=\"1\"\n     bon-g-cols-md=\"30% 1fr\"\n     bon-g-rows=\"20% 30% 1fr 10%\"\n     bon-g-rows-md=\"20% 1fr 10%\"\n     bon-g-area=\"'a' 'b' 'c' 'd'\"\n     bon-g-area-md=\"'a a' 'b c' 'd d'\"</strong>&gt;\n\n  &lt;div class=\"purple\"\n       <strong>bon-gi\n       bon-gi-area=\"a\"\n       bon-f\n       bon-f-direction=\"row\"\n       bon-f-align-items=\"center\"</strong>&gt;\n      &lt;div class=\"grey\"&gt;&lt;/div&gt;\n      &lt;div class=\"grey\"&gt;&lt;/div&gt;\n      &lt;div class=\"empty\" <strong>bon-fi bon-fi-grow=\"1\"</strong>&gt;&lt;/div&gt;\n      &lt;div class=\"grey\"&gt;&lt;/div&gt;\n  &lt;/div&gt;\n\n  &lt;div class=\"yellow\"\n       <strong>bon-gi\n       bon-gi-area=\"b\"\n       bon-f\n       bon-f-direction=\"column\"</strong>&gt;\n    &lt;div class=\"grey\" <strong>bon-fi bon-fi-grow=\"1\"</strong>&gt;&lt;/div&gt;\n    &lt;div class=\"grey\" <strong>bon-fi bon-fi-grow=\"1\"</strong>&gt;&lt;/div&gt;\n    &lt;div class=\"grey\" <strong>bon-fi bon-fi-grow=\"1\"</strong>&gt;&lt;/div&gt;\n  &lt;/div&gt;\n\n  &lt;div class=\"green\"\n      <strong>bon-gi\n       bon-gi-area=\"c\"\n       bon-f\n       bon-f-direction-md=\"column\"</strong>&gt;\n    &lt;div class=\"grey\" <strong>bon-fi bon-fi-grow=\"1\"</strong>&gt;&lt;/div&gt;\n    &lt;div class=\"grey\" <strong>bon-fi bon-fi-grow=\"2\"</strong>&gt;&lt;/div&gt;\n    &lt;div class=\"grey\" <strong>bon-fi bon-fi-grow=\"1\"</strong>&gt;&lt;/div&gt;\n  &lt;/div&gt;\n\n  &lt;div class=\"pink\" <strong>bon-gi bon-gi-area=\"d\"</strong>&gt;&lt;/div&gt;\n&lt;/div&gt;</pre>\n\n    <h4>Preview</h4>\n\n    <div id=\"mixing-grid-and-flex-example\" class=\"canvas\"\n         bon-g\n         bon-g-cols=\"1\"\n         bon-g-cols-md=\"30% 1fr\"\n         bon-g-rows=\"20% 30% 1fr 10%\"\n         bon-g-rows-md=\"20% 1fr 10%\"\n         bon-g-area=\"'a' 'b' 'c' 'd'\"\n         bon-g-area-md=\"'a a' 'b c' 'd d'\">\n\n      <div class=\"purple\"\n           bon-gi\n           bon-gi-area=\"a\"\n           bon-f\n           bon-f-direction=\"row\"\n           bon-f-align-items=\"center\">\n        <div class=\"grey\"></div>\n        <div class=\"grey\"></div>\n        <div class=\"empty\" bon-fi bon-fi-grow=\"1\"></div>\n        <div class=\"grey\"></div>\n      </div>\n\n      <div class=\"yellow\"\n           bon-gi\n           bon-gi-area=\"b\"\n           bon-f\n           bon-f-direction=\"column\">\n        <div class=\"grey\" bon-fi bon-fi-grow=\"1\"></div>\n        <div class=\"grey\" bon-fi bon-fi-grow=\"1\"></div>\n        <div class=\"grey\" bon-fi bon-fi-grow=\"1\"></div>\n      </div>\n\n      <div class=\"green\" bon-gi bon-gi-area=\"c\" bon-f bon-f-direction-md=\"column\">\n        <div class=\"grey\" bon-fi bon-fi-grow=\"1\"></div>\n        <div class=\"grey\" bon-fi bon-fi-grow=\"2\"></div>\n        <div class=\"grey\" bon-fi bon-fi-grow=\"1\"></div>\n      </div>\n\n      <div class=\"pink\" bon-gi bon-gi-area=\"d\"></div>\n    </div>\n\n    <h2>Breakpoint change handler</h2>\n\n    <p>\n      Lorem ipsum dolor....\n    </p>\n\n    <h2>Media-Size Watcher Service</h2>\n\n    <p>\n      Lorem ipsum dolor....\n    </p>\n\n    <h2>API</h2>\n\n    <h3>Flex Directives</h3>\n\n    <p>\n      You can use <var>bon-f</var> and <var>bon-fi</var> directives to do flex layout system for your pages.\n    </p>\n\n    <p>\n      Below tables lists the properties of both the directives.\n    </p>\n\n    <table>\n      <caption>Properties of flex container directive <var>bon-f</var></caption>\n      <thead>\n      <tr>\n        <th>Property Name</th>\n        <th>Type</th>\n        <th>Default</th>\n        <th>Description</th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr>\n        <td>sd</td>\n        <td>asd</td>\n        <td>ad</td>\n        <td>asdsad</td>\n      </tr>\n      </tbody>\n    </table>\n\n  </main>\n</div>\n"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = "<div class=\"container\"\n     bon-grid\n     bon-grid-cols=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\n  height: 100%; }\n  .container header {\n    background-color: #00bfff;\n    color: #efefef;\n    box-shadow: 0 3px 3px -3px #949a9c;\n    text-shadow: 0 1px 0 #949a9c;\n    z-index: 1; }\n  .container header div {\n      margin: 0 1rem 0 1rem; }\n  .container header div .logo {\n        font-size: 3.5rem;\n        font-family: 'Fredoka One', cursive; }\n  .container header div .logo img {\n          position: relative;\n          bottom: 5px;\n          margin: 0 5px; }\n  .container header div .github {\n        margin-top: 1rem; }\n  .container aside {\n    background-color: #f2f4f4; }\n  .container aside nav {\n      padding-top: 20px; }\n  .container aside nav h4 {\n        font-size: 1.5rem;\n        text-align: center; }\n  .container aside nav ul {\n        text-transform: capitalize;\n        margin: 0;\n        padding: 0;\n        list-style: none;\n        font-size: 1.2rem;\n        font-weight: bold;\n        letter-spacing: 0.5px; }\n  .container aside nav ul li a {\n          padding: 0.5rem 0.75rem;\n          display: block;\n          text-align: center;\n          transition: all 0.25s; }\n  .container aside nav ul li a:hover {\n            background-color: #fff; }\n  .container aside.sticky {\n      position: fixed;\n      top: 0;\n      height: 100%;\n      width: 25%; }\n  .container main {\n    padding: 2rem 4rem; }\n  .container main h1 {\n      border-bottom: solid 1px #eaefef; }\n  .container main .canvas {\n      background-color: #f2f2f2;\n      border-radius: 5px;\n      padding: 10px; }\n  .container main .canvas div {\n        margin: 5px;\n        border-radius: 5px;\n        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12); }\n  .container main .green {\n      background-color: #c7e853; }\n  .container main .yellow {\n      background-color: #f2ef37; }\n  .container main .pink {\n      background-color: #ff2873; }\n  .container main .purple {\n      background-color: #a07df2; }\n  .container main #simple-flex-example, .container main #responsive-flex-example {\n      height: 300px; }\n  .container main #simple-grid-example, .container main #responsive-grid-example {\n      height: 500px; }\n  @media screen and (max-width: 575px) {\n  .container header div .logo {\n    font-size: 2.2rem; }\n    .container header div .logo img {\n      width: 20px; }\n  .container main {\n    padding: 2rem; } }\n"
+module.exports = ".container {\n  height: 100%; }\n  .container header {\n    background-color: #00bfff;\n    color: #efefef;\n    box-shadow: 0 3px 3px -3px #949a9c;\n    text-shadow: 0 1px 0 #949a9c;\n    z-index: 1; }\n  .container header div {\n      margin: 0 1rem 0 1rem; }\n  .container header div .logo {\n        font-size: 3.5rem;\n        font-family: 'Fredoka One', cursive;\n        letter-spacing: 1px; }\n  .container header div .logo img {\n          position: relative;\n          bottom: 5px;\n          margin: 0 5px; }\n  .container header div .github {\n        color: #fff;\n        margin-top: 1rem; }\n  .container aside {\n    background-color: #f2f4f4; }\n  .container aside nav {\n      padding-top: 20px; }\n  .container aside nav h4 {\n        font-size: 1.5rem;\n        text-align: center; }\n  .container aside nav ul {\n        text-transform: capitalize;\n        margin: 0;\n        padding: 0;\n        list-style: none;\n        font-size: 1.2rem;\n        font-weight: bold;\n        letter-spacing: 0.5px; }\n  .container aside nav ul li a {\n          padding: 0.5rem 0.75rem;\n          display: block;\n          text-align: center;\n          transition: all 0.25s;\n          color: #666; }\n  .container aside nav ul li a:hover {\n            background-color: #fff;\n            text-decoration: none; }\n  .container aside.sticky {\n      position: fixed;\n      top: 0;\n      height: 100%;\n      width: 25%; }\n  .container main {\n    padding: 2rem 4rem; }\n  .container main h1 {\n      border-bottom: solid 1px #eaefef; }\n  .container main .canvas {\n      background-color: #f2f2f2;\n      border-radius: 5px;\n      padding: 10px; }\n  .container main .canvas div:not(.empty) {\n        margin: 5px;\n        border-radius: 5px;\n        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12); }\n  .container main .green {\n      background-color: #c7e853; }\n  .container main .yellow {\n      background-color: #f2ef37; }\n  .container main .pink {\n      background-color: #ff2873; }\n  .container main .purple {\n      background-color: #a07df2; }\n  .container main .grey {\n      background-color: #eee; }\n  .container main #simple-flex-example, .container main #responsive-flex-example {\n      height: 300px; }\n  .container main #simple-grid-example, .container main #responsive-grid-example, .container main #mixing-grid-and-flex-example {\n      height: 500px; }\n  .container main #mixing-grid-and-flex-example .purple .grey {\n      width: 100px;\n      height: 20px; }\n  .container main #mixing-grid-and-flex-example .yellow, .container main #mixing-grid-and-flex-example .green {\n      padding: 20px; }\n  @media screen and (max-width: 575px) {\n  .container header div .logo {\n    font-size: 2.2rem; }\n    .container header div .logo img {\n      width: 20px; }\n  .container main {\n    padding: 2rem; } }\n"
 
 /***/ }),
 
@@ -406,133 +406,133 @@ var BoneFlex = /** @class */ (function (_super) {
         return ['display', 'flex-direction', 'flex-wrap', 'justify-content', 'align-items', 'align-content'];
     };
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f'),
         __metadata("design:type", String),
         __metadata("design:paramtypes", [String])
     ], BoneFlex.prototype, "display", null);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-direction'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-direction'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "direction", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-wrap'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-wrap'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "wrap", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-justify-content'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-justify-content'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "justifyContent", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-align-items'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-align-items'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "alignItems", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-align-content'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-align-content'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "alignContent", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-sm'),
         __metadata("design:type", String),
         __metadata("design:paramtypes", [String])
     ], BoneFlex.prototype, "displaySm", null);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-direction-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-direction-sm'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "directionSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-wrap-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-wrap-sm'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "wrapSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-justify-content-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-justify-content-sm'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "justifyContentSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-align-items-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-align-items-sm'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "alignItemsSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-align-content-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-align-content-sm'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "alignContentSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-md'),
         __metadata("design:type", String),
         __metadata("design:paramtypes", [String])
     ], BoneFlex.prototype, "displayMd", null);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-direction-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-direction-md'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "directionMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-wrap-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-wrap-md'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "wrapMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-justify-content-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-justify-content-md'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "justifyContentMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-align-items-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-align-items-md'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "alignItemsMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-align-content-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-align-content-md'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "alignContentMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-lg'),
         __metadata("design:type", String),
         __metadata("design:paramtypes", [String])
     ], BoneFlex.prototype, "displayLg", null);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-direction-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-direction-lg'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "directionLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-wrap-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-wrap-lg'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "wrapLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-justify-content-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-justify-content-lg'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "justifyContentLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-align-items-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-align-items-lg'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "alignItemsLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-align-content-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-align-content-lg'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "alignContentLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-xl'),
         __metadata("design:type", String),
         __metadata("design:paramtypes", [String])
     ], BoneFlex.prototype, "displayXl", null);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-direction-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-direction-xl'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "directionXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-wrap-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-wrap-xl'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "wrapXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-justify-content-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-justify-content-xl'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "justifyContentXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-align-items-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-align-items-xl'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "alignItemsXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-align-content-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-f-align-content-xl'),
         __metadata("design:type", String)
     ], BoneFlex.prototype, "alignContentXl", void 0);
     BoneFlex = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
-            selector: '[bon-flex]'
+            selector: '[bon-f]'
         })
     ], BoneFlex);
     return BoneFlex;
@@ -608,108 +608,108 @@ var BoneFlexItem = /** @class */ (function (_super) {
         return ['order', 'grow', 'shrink', 'basis', 'align'];
     };
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-order'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-order'),
         __metadata("design:type", Number)
     ], BoneFlexItem.prototype, "order", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-grow'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-grow'),
         __metadata("design:type", Number)
     ], BoneFlexItem.prototype, "grow", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-shrink'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-shrink'),
         __metadata("design:type", Number)
     ], BoneFlexItem.prototype, "shrink", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-basis'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-basis'),
         __metadata("design:type", Object)
     ], BoneFlexItem.prototype, "basis", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-align'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-align'),
         __metadata("design:type", String)
     ], BoneFlexItem.prototype, "align", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-order-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-order-sm'),
         __metadata("design:type", Number)
     ], BoneFlexItem.prototype, "orderSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-grow-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-grow-sm'),
         __metadata("design:type", Number)
     ], BoneFlexItem.prototype, "growSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-shrink-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-shrink-sm'),
         __metadata("design:type", Number)
     ], BoneFlexItem.prototype, "shrinkSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-basis-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-basis-sm'),
         __metadata("design:type", Object)
     ], BoneFlexItem.prototype, "basisSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-align-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-align-sm'),
         __metadata("design:type", String)
     ], BoneFlexItem.prototype, "alignSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-order-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-order-md'),
         __metadata("design:type", Number)
     ], BoneFlexItem.prototype, "orderMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-grow-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-grow-md'),
         __metadata("design:type", Number)
     ], BoneFlexItem.prototype, "growMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-shrink-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-shrink-md'),
         __metadata("design:type", Number)
     ], BoneFlexItem.prototype, "shrinkMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-basis-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-basis-md'),
         __metadata("design:type", Object)
     ], BoneFlexItem.prototype, "basisMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-align-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-align-md'),
         __metadata("design:type", String)
     ], BoneFlexItem.prototype, "alignMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-order-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-order-lg'),
         __metadata("design:type", Number)
     ], BoneFlexItem.prototype, "orderLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-grow-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-grow-lg'),
         __metadata("design:type", Number)
     ], BoneFlexItem.prototype, "growLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-shrink-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-shrink-lg'),
         __metadata("design:type", Number)
     ], BoneFlexItem.prototype, "shrinkLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-basis-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-basis-lg'),
         __metadata("design:type", Object)
     ], BoneFlexItem.prototype, "basisLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-align-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-align-lg'),
         __metadata("design:type", String)
     ], BoneFlexItem.prototype, "alignLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-order-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-order-xl'),
         __metadata("design:type", Number)
     ], BoneFlexItem.prototype, "orderXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-grow-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-grow-xl'),
         __metadata("design:type", Number)
     ], BoneFlexItem.prototype, "growXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-shrink-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-shrink-xl'),
         __metadata("design:type", Number)
     ], BoneFlexItem.prototype, "shrinkXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-basis-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-basis-xl'),
         __metadata("design:type", Object)
     ], BoneFlexItem.prototype, "basisXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-flex-item-align-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-fi-align-xl'),
         __metadata("design:type", String)
     ], BoneFlexItem.prototype, "alignXl", void 0);
     BoneFlexItem = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
-            selector: '[bon-flex-item]'
+            selector: '[bon-fi]'
         })
     ], BoneFlexItem);
     return BoneFlexItem;
@@ -913,253 +913,253 @@ var BoneGrid = /** @class */ (function (_super) {
         }
     };
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g'),
         __metadata("design:type", String),
         __metadata("design:paramtypes", [String])
     ], BoneGrid.prototype, "display", null);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-cols'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-cols'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "cols", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-rows'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-rows'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "rows", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-area'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-area'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "area", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-auto-cols'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-auto-cols'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "autoCols", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-auto-rows'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-auto-rows'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "autoRows", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-auto-flow'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-auto-flow'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "autoFlow", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-gap'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-gap'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "gridGap", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-justify-items'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-justify-items'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "justifyItems", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-align-items'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-align-items'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "alignItems", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-justify-content'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-justify-content'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "justifyContent", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-align-content'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-align-content'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "alignContent", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-sm'),
         __metadata("design:type", String),
         __metadata("design:paramtypes", [String])
     ], BoneGrid.prototype, "displaySm", null);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-cols-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-cols-sm'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "colsSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-rows-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-rows-sm'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "rowsSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-area-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-area-sm'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "areaSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-auto-cols-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-auto-cols-sm'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "autoColsSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-auto-rows-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-auto-rows-sm'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "autoRowsSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-auto-flow-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-auto-flow-sm'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "autoFlowSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-gap-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-gap-sm'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "gridGapSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-justify-items-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-justify-items-sm'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "justifyItemsSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-align-items-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-align-items-sm'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "alignItemsSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-justify-content-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-justify-content-sm'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "justifyContentSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-align-content-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-align-content-sm'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "alignContentSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-md'),
         __metadata("design:type", String),
         __metadata("design:paramtypes", [String])
     ], BoneGrid.prototype, "displayMd", null);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-cols-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-cols-md'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "colsMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-rows-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-rows-md'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "rowsMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-area-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-area-md'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "areaMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-auto-cols-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-auto-cols-md'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "autoColsMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-auto-rows-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-auto-rows-md'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "autoRowsMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-auto-flow-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-auto-flow-md'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "autoFlowMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-gap-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-gap-md'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "gridGapMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-justify-items-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-justify-items-md'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "justifyItemsMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-align-items-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-align-items-md'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "alignItemsMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-justify-content-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-justify-content-md'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "justifyContentMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-align-content-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-align-content-md'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "alignContentMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-lg'),
         __metadata("design:type", String),
         __metadata("design:paramtypes", [String])
     ], BoneGrid.prototype, "displayLg", null);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-cols-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-cols-lg'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "colsLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-rows-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-rows-lg'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "rowsLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-area-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-area-lg'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "areaLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-auto-cols-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-auto-cols-lg'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "autoColsLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-auto-rows-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-auto-rows-lg'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "autoRowsLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-auto-flow-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-auto-flow-lg'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "autoFlowLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-gap-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-gap-lg'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "gridGapLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-justify-items-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-justify-items-lg'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "justifyItemsLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-align-items-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-align-items-lg'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "alignItemsLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-justify-content-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-justify-content-lg'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "justifyContentLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-align-content-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-align-content-lg'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "alignContentLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-xl'),
         __metadata("design:type", String),
         __metadata("design:paramtypes", [String])
     ], BoneGrid.prototype, "displayXl", null);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-cols-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-cols-xl'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "colsXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-rows-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-rows-xl'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "rowsXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-area-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-area-xl'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "areaXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-auto-cols-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-auto-cols-xl'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "autoColsXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-auto-rows-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-auto-rows-xl'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "autoRowsXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-auto-flow-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-auto-flow-xl'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "autoFlowXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-gap-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-gap-xl'),
         __metadata("design:type", Object)
     ], BoneGrid.prototype, "gridGapXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-justify-items-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-justify-items-xl'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "justifyItemsXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-align-items-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-align-items-xl'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "alignItemsXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-justify-content-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-justify-content-xl'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "justifyContentXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-align-content-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-g-align-content-xl'),
         __metadata("design:type", String)
     ], BoneGrid.prototype, "alignContentXl", void 0);
     BoneGrid = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
-            selector: '[bon-grid]'
+            selector: '[bon-g]'
         })
     ], BoneGrid);
     return BoneGrid;
@@ -1260,108 +1260,108 @@ var BoneGridItem = /** @class */ (function (_super) {
         return area;
     };
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-col'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-col'),
         __metadata("design:type", Object)
     ], BoneGridItem.prototype, "col", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-row'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-row'),
         __metadata("design:type", Object)
     ], BoneGridItem.prototype, "row", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-area'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-area'),
         __metadata("design:type", Object)
     ], BoneGridItem.prototype, "area", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-justify'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-justify'),
         __metadata("design:type", String)
     ], BoneGridItem.prototype, "justify", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-align'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-align'),
         __metadata("design:type", String)
     ], BoneGridItem.prototype, "align", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-col-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-col-sm'),
         __metadata("design:type", Object)
     ], BoneGridItem.prototype, "colSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-row-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-row-sm'),
         __metadata("design:type", Object)
     ], BoneGridItem.prototype, "rowSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-area-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-area-sm'),
         __metadata("design:type", Object)
     ], BoneGridItem.prototype, "areaSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-justify-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-justify-sm'),
         __metadata("design:type", String)
     ], BoneGridItem.prototype, "justifySm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-align-sm'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-align-sm'),
         __metadata("design:type", String)
     ], BoneGridItem.prototype, "alignSm", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-col-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-col-md'),
         __metadata("design:type", String)
     ], BoneGridItem.prototype, "colMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-row-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-row-md'),
         __metadata("design:type", Object)
     ], BoneGridItem.prototype, "rowMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-area-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-area-md'),
         __metadata("design:type", Object)
     ], BoneGridItem.prototype, "areaMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-justify-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-justify-md'),
         __metadata("design:type", String)
     ], BoneGridItem.prototype, "justifyMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-align-md'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-align-md'),
         __metadata("design:type", String)
     ], BoneGridItem.prototype, "alignMd", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-col-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-col-lg'),
         __metadata("design:type", String)
     ], BoneGridItem.prototype, "colLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-row-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-row-lg'),
         __metadata("design:type", Object)
     ], BoneGridItem.prototype, "rowLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-area-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-area-lg'),
         __metadata("design:type", Object)
     ], BoneGridItem.prototype, "areaLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-justify-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-justify-lg'),
         __metadata("design:type", String)
     ], BoneGridItem.prototype, "justifyLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-align-lg'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-align-lg'),
         __metadata("design:type", String)
     ], BoneGridItem.prototype, "alignLg", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-col-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-col-xl'),
         __metadata("design:type", String)
     ], BoneGridItem.prototype, "colXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-row-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-row-xl'),
         __metadata("design:type", Object)
     ], BoneGridItem.prototype, "rowXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-area-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-area-xl'),
         __metadata("design:type", Object)
     ], BoneGridItem.prototype, "areaXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-justify-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-justify-xl'),
         __metadata("design:type", String)
     ], BoneGridItem.prototype, "justifyXl", void 0);
     __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-grid-item-align-xl'),
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])('bon-gi-align-xl'),
         __metadata("design:type", String)
     ], BoneGridItem.prototype, "alignXl", void 0);
     BoneGridItem = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
-            selector: '[bon-grid-item]'
+            selector: '[bon-gi]'
         })
     ], BoneGridItem);
     return BoneGridItem;
