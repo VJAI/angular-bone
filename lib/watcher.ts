@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, NgZone } from '@angular/core';
 import { Breakpoint } from './breakpoint';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class MediaSizeWatcher {
     [Breakpoint.ExtraSmall, window.matchMedia('(min-width: 0)')]
   ]);
 
-  constructor() {
+  constructor(@Inject(NgZone) private ngZone: NgZone) {
     this.listen = this.listen.bind(this);
     this.mediaSizeQueryMap.forEach((value:MediaQueryList) => value.addListener(this.listen));
     this.listen();
@@ -50,6 +50,8 @@ export class MediaSizeWatcher {
   }
 
   private alertSubscribers(): void {
-    this.subscribers.forEach(subscriber => subscriber(this.currentMediaSize));
+    this.ngZone.run(() => {
+      this.subscribers.forEach(subscriber => subscriber(this.currentMediaSize));
+    });
   }
 }

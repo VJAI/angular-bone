@@ -23,13 +23,15 @@
 
       <ul>
         <li><a href="#intro">Introduction</a></li>
-        <li><a href="#simple-flex">Simple flex layout</a></li>
-        <li><a href="#">Simple grid layout</a></li>
-        <li><a href="#">Responsive flex layout</a></li>
-        <li><a href="#">Responsive grid layout</a></li>
-        <li><a href="#">Mixing grid and flex</a></li>
-        <li><a href="#">Real world example</a></li>
-        <li><a href="#">API</a></li>
+        <li><a href="#install">Installation</a></li>
+        <li><a href="#flex-layouts">Flex Layouts</a></li>
+        <li><a href="#grid-layouts">Grid Layouts</a></li>
+        <li><a href="#mixing">Mixing Grid and Flex</a></li>
+        <li><a href="#breakpoint-change">Breakpoint Change Handler</a></li>
+        <li><a href="#service">Media-Size Watcher Service</a></li>
+        <li><a href="#api">API</a></li>
+        <li><a href="#license">License</a></li>
+        <li><a href="#github">Github</a></li>
       </ul>
     </nav>
   </aside>
@@ -54,7 +56,17 @@
       changes and act accordingly.
     </p>
 
-    <h2>Flex Layouts</h2>
+    <h2 id="install">Installation</h2>
+
+    <p>
+      You can install the library from npm.
+    </p>
+
+<pre>
+npm install angular-bone --save
+</pre>
+
+    <h2 id="flex-layouts">Flex Layouts</h2>
 
     <p>
       You can create flex layouts using two directives: <var>bon-f</var> and <var>bon-fi</var>.&nbsp;&nbsp;<var>bon-f</var> is used to
@@ -107,7 +119,7 @@
       <div class="pink" bon-fi bon-fi-grow="1" bon-fi-grow-md="2"></div>
     </div>
 
-    <h2>Grid Layouts</h2>
+    <h2 id="grid-layouts">Grid Layouts</h2>
 
     <p>
       You can create awesome grid layouts using two directives: <var>bon-g</var> and <var>bon-gi</var>. <var>bon-g</var> is used to
@@ -172,7 +184,7 @@
       <div class="pink" bon-gi bon-gi-area="d"></div>
     </div>
 
-    <h2>Mixing grid and flex</h2>
+    <h2 id="mixing">Mixing grid and flex</h2>
 
     <h4>Code</h4>
 
@@ -262,19 +274,23 @@
       <div class="pink" bon-gi bon-gi-area="d"></div>
     </div>
 
-    <h2>Breakpoint change handler</h2>
+    <h2 id="breakpoint-change">Breakpoint change handler</h2>
 
     <p>
       Lorem ipsum dolor....
     </p>
 
-    <h2>Media-Size Watcher Service</h2>
+    <h2 id="service">Media-Size Watcher Service</h2>
 
     <p>
-      Lorem ipsum dolor....
+      The library also provides you a service to watch for breakpoint changes anywhere and act accordingly.
     </p>
 
-    <h2>API</h2>
+<pre>
+TODO
+</pre>
+
+    <h2 id="api">API</h2>
 
     <h3>Flex Directives</h3>
 
@@ -345,7 +361,194 @@
     <table>
       <caption>Properties of flex item directive <var>bon-fi</var></caption>
       <thead>
+        <tr>
+          <th style="width: 25%">Property Name</th>
+          <th style="width: 10%">Type</th>
+          <th style="width: 10%">Default</th>
+          <th>Description</th>
+        </tr>
       </thead>
+      <tbody>
+      <tr>
+        <td>bon-fi-order</td>
+        <td>number</td>
+        <td></td>
+        <td>Controls the order in which they appear in the flex container.</td>
+      </tr>
+      <tr>
+        <td>bon-fi-grow</td>
+        <td></td>
+        <td></td>
+        <td>Defines the ability for a flex item to grow.</td>
+      </tr>
+      <tr>
+        <td>bon-fi-shrink</td>
+        <td></td>
+        <td></td>
+        <td>Defines the ability for a flex item to shrink.</td>
+      </tr>
+      <tr>
+        <td>bon-fi-basis</td>
+        <td></td>
+        <td></td>
+        <td>Defines the default size of an element before the remaining space is distributed.</td>
+      </tr>
+      <tr>
+        <td>bon-fi-align</td>
+        <td></td>
+        <td></td>
+        <td>The default alignment of the item.</td>
+      </tr>
+      </tbody>
     </table>
+
+    <p>
+      The above properties repeats for other screen sizes with the respective suffix.
+    </p>
+
+    <table>
+      <caption>Properties of grid directive <var>bon-g</var></caption>
+      <thead>
+      <tr>
+        <th style="width: 25%">Property Name</th>
+        <th style="width: 10%">Type</th>
+        <th style="width: 10%">Default</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>bon-g</td>
+        <td>string</td>
+        <td></td>
+        <td>The display type of grid container. The value can be either "grid", "inline-grid" or "none".</td>
+      </tr>
+      <tr>
+        <td>bon-g-cols</td>
+        <td>number | Array&lt;number | string&gt; | string</td>
+        <td></td>
+        <td>The columns configuration of grid. Passing number create that many equal size columns. You can also
+        pass an array of column values or a string.</td>
+      </tr>
+      <tr>
+        <td>bon-g-rows</td>
+        <td>number | Array&lt;number | string&gt; | string</td>
+        <td></td>
+        <td>The columns configuration of grid. Passing number create that many equal size rows. You can also
+          pass an array of column values or a string.</td>
+      </tr>
+      <tr>
+        <td>bon-g-area</td>
+        <td>Array&lt;Array&lt;string&gt;&gt; | string</td>
+        <td></td>
+        <td>The area configuration. You can pass as an array of arrays or just a string.</td>
+      </tr>
+      <tr>
+        <td>bon-g-auto-cols</td>
+        <td>number | string</td>
+        <td></td>
+        <td>The default size of auto-generated grid columns.</td>
+      </tr>
+      <tr>
+        <td>bon-g-auto-rows</td>
+        <td>number | string</td>
+        <td></td>
+        <td>The default size of auto-generated grid rows.</td>
+      </tr>
+      <tr>
+        <td>bon-g-auto-flow</td>
+        <td>string</td>
+        <td></td>
+        <td>Controls how auto-placed items get inserted in the grid. It's an enumeration and the values are "row", "column", "row dense" and "column dense".</td>
+      </tr>
+      <tr>
+        <td>bon-g-gap</td>
+        <td>number | Array&lt;number | string&gt; | string</td>
+        <td></td>
+        <td>The gap between rows and columns.</td>
+      </tr>
+      <tr>
+        <td>bon-g-justify-items</td>
+        <td>string</td>
+        <td></td>
+        <td>Specifies the alignment of grid items along the row axis. Some of the possible values are "start", "end", "center" and "stretch".</td>
+      </tr>
+      <tr>
+        <td>bon-g-align-items</td>
+        <td>string</td>
+        <td></td>
+        <td>Specifies the alignment of grid items along the column axis. Some of the possible values are "start", "end", "center" and "stretch".</td>
+      </tr>
+      <tr>
+        <td>bon-g-justify-content</td>
+        <td>string</td>
+        <td></td>
+        <td>Specifies the alignment of grid along the row axis.</td>
+      </tr>
+      <tr>
+        <td>bon-g-align-content</td>
+        <td>string</td>
+        <td></td>
+        <td>Specifies the alignment of grid along the column axis.</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <table>
+      <caption>Properties of grid directive <var>bon-g</var></caption>
+      <thead>
+      <tr>
+        <th style="width: 25%">Property Name</th>
+        <th style="width: 10%">Type</th>
+        <th style="width: 10%">Default</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>bon-gi-col</td>
+        <td>number | [number | string, number | string] | string</td>
+        <td></td>
+        <td>Passing a number will specify the spanning of the column. You can also specify the position as an array or string.</td>
+      </tr>
+      <tr>
+        <td>bon-gi-row</td>
+        <td>number | [number | string, number | string] | string</td>
+        <td></td>
+        <td>Passing a number will specify the spanning of the row. You can also specify the position as an array or string.</td>
+      </tr>
+      <tr>
+        <td>bon-gi-area</td>
+        <td>[number | string, number | string, number | string, number | string] | string</td>
+        <td></td>
+        <td>The area of the item.</td>
+      </tr>
+      <tr>
+        <td>bon-gi-justify</td>
+        <td>string</td>
+        <td></td>
+        <td>Specifies the alignment of a grid item inside a cell along the inline (row).</td>
+      </tr>
+      <tr>
+        <td>bon-gi-align</td>
+        <td>string</td>
+        <td></td>
+        <td>Specifies the alignment of a grid item inside a cell along the inline (column).</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <h2 id="license">License</h2>
+
+    <p>
+      MIT
+    </p>
+
+    <h2 id="github">Github</h2>
+
+    <p>
+      The repo is hosted in Github <a target="_blank" href="https://github.com/VJAI/angular-bone">https://github.com/VJAI/angular-bone</a>. Please give a star if you like and feel
+      free to clone and raise pull requests.
+    </p>
   </main>
 </div>
