@@ -282,7 +282,15 @@ npm install angular-bone --save
     <h2 id="breakpoint-change">Breakpoint change handler</h2>
 
     <p>
-      Lorem ipsum dolor....
+      All the directives provides you an event called <code>breakpoint-change</code> to listen to breakpoint changes. You can either use this event or the <code>MediaSizeWatcher</code>
+      service to do some interesting when the screen size changes.
+    </p>
+
+<pre [innerHtml]="code1">
+</pre>
+
+    <p>
+      The event argument contains the breakpoint, element and directive.
     </p>
 
     <h2 id="service">Media-Size Watcher Service</h2>
@@ -291,8 +299,7 @@ npm install angular-bone --save
       The library also provides you a service to watch for breakpoint changes anywhere and act accordingly.
     </p>
 
-<pre>
-TODO
+<pre [innerHtml]="code2">
 </pre>
 
     <h2 id="api">API</h2>

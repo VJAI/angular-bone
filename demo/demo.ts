@@ -8,7 +8,7 @@ import {
   OnDestroy,
   ViewChild
 } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import 'zone.js/dist/zone';
 import { BoneModule } from '../lib/bone';
 import { MediaSizeWatcher } from '../lib/watcher';
@@ -28,13 +28,17 @@ class DemoComponent implements AfterViewInit, OnDestroy {
 
   public isSticky: boolean;
 
+  public code1: SafeHtml;
+
+  public code2: SafeHtml;
+
   private initialOffset: number;
 
   private mediaWatcherUnSubscribeFunction: () => void;
 
   private breakpoint: Breakpoint;
 
-  constructor(@Inject(MediaSizeWatcher) private watcher: MediaSizeWatcher) {
+  constructor(@Inject(MediaSizeWatcher) private watcher: MediaSizeWatcher, @Inject(DomSanitizer) private sanitized: DomSanitizer) {
     this.breakpoint = this.watcher.getCurrentMedia();
     this.setAside();
 
@@ -42,6 +46,34 @@ class DemoComponent implements AfterViewInit, OnDestroy {
       this.breakpoint = breakpoint;
       this.setAside();
     });
+
+    this.code1 = this.sanitized.bypassSecurityTrustHtml(
+      `&lt;div <strong>bon-g
+     bon-g-cols="30% 1fr"
+     bon-g-rows="20% 1fr 10%"
+     bon-g-area="'a a' 'b c' 'd d'"</strong>
+     breakpoint-change="onBreakpointChange($event)"&gt;
+     ...
+&lt;/div&gt;`);
+
+    this.code2 = this.sanitized.bypassSecurityTrustHtml(
+      `@Component({...})
+public class TestComponent implements OnDestroy {
+
+  private mediaWatcherUnSubscribeFunction: () => void;
+
+  constructor(@Inject(MediaSizeWatcher) private mediaSizeWatcher: MediaSizeWatcher) {
+    this.mediaWatcherUnSubscribeFunction = this.watcher.watch((breakpoint: Breakpoint) => {
+      if (breakpoint == Breakpoint.ExtraLarge) {
+        // may be add some css class or change the style of the component?
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.mediaWatcherUnSubscribeFunction();
+  }
+}`);
   }
 
   @HostListener('window:scroll', [])
