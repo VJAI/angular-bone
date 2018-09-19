@@ -1,2 +1,0 @@
-1. Destroy
-2. Areas, Rows and Columns confusion
