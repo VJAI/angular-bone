@@ -15,6 +15,17 @@ It provides you a set of directives that helps to build responsive layouts in a 
 ```
 
 
+## Responsive Flex Layout
+
+```html
+<div bon-f bon-f-direction="column" bon-f-direction-md="row">
+  <div class="green" bon-fi bon-fi-grow="1"></div>
+  <div class="yellow" bon-fi bon-fi-grow="1"></div>
+  <div class="pink" bon-fi bon-fi-grow="1" bon-fi-grow-md="2"></div>
+</div>
+```
+
+
 ## Simple Grid Layout
 
 ```html
@@ -27,17 +38,6 @@ It provides you a set of directives that helps to build responsive layouts in a 
   <div class="yellow" bon-gi bon-gi-area="b"></div>
   <div class="green" bon-gi bon-gi-area="c"></div>
   <div class="pink" bon-gi bon-gi-area="d"></div>
-</div>
-```
-
-
-## Responsive Flex Layout
-
-```html
-<div bon-f bon-f-direction-md="column" bon-f-direction-md="row">
-  <div class="green" bon-fi bon-fi-grow="1"></div>
-  <div class="yellow" bon-fi bon-fi-grow="1"></div>
-  <div class="pink" bon-fi bon-fi-grow="1" bon-fi-grow-md="2"></div>
 </div>
 ```
 
@@ -61,16 +61,4 @@ It provides you a set of directives that helps to build responsive layouts in a 
 ```
 
 
-## Mixing Grid and Flex
-
-TODO
-
-
-## Real World Example
-
-TODO
-
-
-## API
-
-TODO
+For further information please visit [https://vjai.github.io/angular-bone/](https://vjai.github.io/angular-bone/).
