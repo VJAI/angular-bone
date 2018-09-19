@@ -4,6 +4,15 @@
 It provides you a set of directives that helps to build responsive layouts in a declarative way.
 
 
+## Installation
+
+You can install from npm.
+
+```shell
+npm install angular-bone --save
+```
+
+
 ## Simple Flex Layout
 
 ```html
