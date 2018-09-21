@@ -258,9 +258,8 @@ export class BoneGrid extends BoneBase {
       alignContent: this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignContent])
     };
 
-    const hasValue = Object.values(newStyles).filter(newStyle => !!newStyle).length > 0;
-
     if (this.currentStyles === null) {
+      const hasValue = Object.values(newStyles).filter(newStyle => !!newStyle).length > 0;
       this.currentStyles = hasValue ? newStyles : null;
       return this.currentStyles;
     } else if (this.currentStyles.display !== newStyles.display ||

@@ -17,8 +17,6 @@ export abstract class BoneBase implements OnChanges, OnDestroy {
 
   protected mediaWatcherUnSubscribeFunction: () => void;
 
-  protected currentAppliedStyles: any = null;
-
   constructor(@Inject(ElementRef) protected el: ElementRef, @Inject(MediaSizeWatcher) protected watcher: MediaSizeWatcher) {
     this.breakpoint = this.watcher.getCurrentMedia();
     this.mediaWatcherUnSubscribeFunction = this.watcher.watch((breakpoint: Breakpoint) => {

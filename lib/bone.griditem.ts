@@ -100,9 +100,8 @@ export class BoneGridItem extends BoneBase {
       gridRow: this.getRow()
     };
 
-    const hasValue = Object.values(newStyles).filter(newStyle => !!newStyle).length > 0;
-
     if (this.currentStyles === null) {
+      const hasValue = Object.values(newStyles).filter(newStyle => !!newStyle).length > 0;
       this.currentStyles = hasValue ? newStyles : null;
       return this.currentStyles;
     } else if (this.currentStyles.justifySelf !== newStyles.justifySelf ||

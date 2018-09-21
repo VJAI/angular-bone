@@ -100,9 +100,8 @@ export class BoneFlexItem extends BoneBase {
       alignSelf: this.getValue([this.alignXl, this.alignLg, this.alignMd, this.alignSm, this.align])
     };
 
-    const hasValue = Object.values(newStyles).filter(newStyle => !!newStyle).length > 0;
-
     if (this.currentStyles === null) {
+      const hasValue = Object.values(newStyles).filter(newStyle => !!newStyle).length > 0;
       this.currentStyles = hasValue ? newStyles : null;
       return this.currentStyles;
     } else if (this.currentStyles.flexOrder !== newStyles.flexOrder ||
