@@ -30,14 +30,14 @@ export abstract class BoneBase implements OnChanges, OnDestroy {
     });
   }
 
-  ngOnChanges() {
+  public ngOnChanges() {
     this.applyLayout();
   }
 
-  ngOnDestroy() {
+  public ngOnDestroy() {
     this.mediaWatcherUnSubscribeFunction();
     this.getStylePropNames().forEach(style => {
-      this.el.nativeElement.style.removeProperty(style);
+      this.el.nativeElement.style.removeProperty(this.toKebab(style));
     });
   }
 
