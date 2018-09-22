@@ -282,19 +282,7 @@ export class BoneGrid extends BoneBase {
   }
 
   public getStylePropNames(): Array<string> {
-    return [
-      'display',
-      'grid-template-columns',
-      'grid-template-rows',
-      'grid-template-areas',
-      'grid-auto-columns',
-      'grid-auto-rows',
-      'grid-gap',
-      'justify-items',
-      'align-items',
-      'justify-content',
-      'align-content'
-    ];
+    return Object.keys(this.currentStyles || {});
   }
 
   private getCols(): string {

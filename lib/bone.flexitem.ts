@@ -116,6 +116,6 @@ export class BoneFlexItem extends BoneBase {
   }
 
   public getStylePropNames(): Array<string> {
-    return ['order', 'grow', 'shrink', 'basis', 'align'];
+    return Object.keys(this.currentStyles || {});
   }
 }

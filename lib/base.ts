@@ -54,7 +54,7 @@ export abstract class BoneBase implements OnChanges, OnDestroy {
       if (value) {
         this.el.nativeElement.style.setProperty(this.toKebab(style), value);
       } else {
-        this.el.nativeElement.style.removeProperty(this.toCamel(style));
+        this.el.nativeElement.style.removeProperty(this.toKebab(style));
       }
     });
   }
@@ -77,9 +77,5 @@ export abstract class BoneBase implements OnChanges, OnDestroy {
 
   public toKebab(str: string): string {
     return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-  }
-
-  public toCamel(str: string): string {
-    return str.replace(/-([a-z])/g, g => g[1].toUpperCase());
   }
 }

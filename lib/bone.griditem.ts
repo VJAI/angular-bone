@@ -95,9 +95,9 @@ export class BoneGridItem extends BoneBase {
     const newStyles: GridItemStyleProps = {
       justifySelf: this.getValue([this.justifyXl, this.justifyLg, this.justifyMd, this.justifySm, this.justify]),
       alignSelf: this.getValue([this.alignXl, this.alignLg, this.alignMd, this.alignSm, this.align]),
-      gridArea: this.getAreaInfo(),
       gridColumn: this.getCol(),
-      gridRow: this.getRow()
+      gridRow: this.getRow(),
+      gridArea: this.getAreaInfo()
     };
 
     if (this.currentStyles === null) {
@@ -117,7 +117,7 @@ export class BoneGridItem extends BoneBase {
   }
 
   public getStylePropNames(): Array<string> {
-    return ['grid-column', 'grid-row', 'grid-area', 'justify-self', 'align-self'];
+    return Object.keys(this.currentStyles || {});
   }
 
   private getCol(): string {
@@ -137,7 +137,7 @@ export class BoneGridItem extends BoneBase {
       return `${track[0]} / ${track[1]}`;
     }
 
-    return <string>track || '';
+    return <string>track;
   }
 
   private getAreaInfo(): string {

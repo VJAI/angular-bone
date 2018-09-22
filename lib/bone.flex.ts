@@ -176,6 +176,6 @@ export class BoneFlex extends BoneBase {
   }
 
   public getStylePropNames(): Array<string> {
-    return ['display', 'flex-direction', 'flex-wrap', 'justify-content', 'align-items', 'align-content'];
+    return Object.keys(this.currentStyles || {});
   }
 }
