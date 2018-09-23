@@ -95,9 +95,9 @@ export class BoneGridItem extends BoneBase {
     const newStyles: GridItemStyleProps = {
       justifySelf: this.getValue([this.justifyXl, this.justifyLg, this.justifyMd, this.justifySm, this.justify]),
       alignSelf: this.getValue([this.alignXl, this.alignLg, this.alignMd, this.alignSm, this.align]),
+      gridArea: this.getAreaInfo(),
       gridColumn: this.getCol(),
-      gridRow: this.getRow(),
-      gridArea: this.getAreaInfo()
+      gridRow: this.getRow()
     };
 
     if (this.currentStyles === null) {

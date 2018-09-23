@@ -48,15 +48,11 @@ export abstract class BoneBase implements OnChanges, OnDestroy {
       return;
     }
 
-    Object.keys(styles).forEach(style => {
-      const value = styles[style];
+    Object.keys(styles).filter(style => !styles[style])
+      .forEach(style => this.el.nativeElement.style.removeProperty(this.toKebab(style)));
 
-      if (value) {
-        this.el.nativeElement.style.setProperty(this.toKebab(style), value);
-      } else {
-        this.el.nativeElement.style.removeProperty(this.toKebab(style));
-      }
-    });
+    Object.keys(styles).filter(style => !!styles[style])
+      .forEach(style => this.el.nativeElement.style.setProperty(this.toKebab(style), styles[style]));
   }
 
   public abstract getStyles(): { [key: string]: any };
