@@ -10,9 +10,7 @@ import {
 } from '@angular/core';
 import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import 'zone.js/dist/zone';
-import { BoneModule } from '../lib/bone';
-import { MediaSizeWatcher } from '../lib/watcher';
-import { Breakpoint } from "../lib/breakpoint";
+import { BoneModule, MediaSizeWatcher, Breakpoint } from 'angular-bone';
 
 @Component({
   selector: 'demo-root',
