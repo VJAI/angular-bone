@@ -20,7 +20,7 @@
     "start": "ng serve",
     "build": "ng build bone --prod && gulp copy",
     "docs": "ng build demo --prod && gulp docs",
-    "publish": "cd dist && npm publish"
+    "publish": "cd dist/angular-bone && npm publish"
   },
   "dependencies": {
     "@angular/common": "^6.1.0",
