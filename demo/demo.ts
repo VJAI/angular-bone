@@ -17,7 +17,7 @@ import { BoneModule, MediaSizeWatcher, Breakpoint } from 'angular-bone';
   templateUrl: './demo.html',
   styleUrls: ['./demo.scss']
 })
-class DemoComponent implements AfterViewInit, OnDestroy {
+export class DemoComponent implements AfterViewInit, OnDestroy {
 
   public title = 'angular-bone';
 

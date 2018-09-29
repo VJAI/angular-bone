@@ -1,6 +1,6 @@
 {
   "name": "angular-bone",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Provides structure to your angular apps using CSS3 Grid and Flex",
   "keywords": [
     "css3-grid",
@@ -18,8 +18,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "lint": "ng lint"
+    "build": "ng build bone --prod && gulp copy",
+    "docs": "ng build demo --prod && gulp docs",
+    "publish": "cd dist && npm publish"
   },
   "dependencies": {
     "@angular/common": "^6.1.0",
@@ -38,7 +39,9 @@
     "@angular/cli": "~6.1.2",
     "@angular/compiler-cli": "^6.1.0",
     "@types/node": "~8.9.4",
+    "gulp": "^3.9.1",
     "ng-packagr": "^4.1.1",
+    "replace": "^1.0.0",
     "ts-node": "~5.0.1",
     "typescript": "~2.7.2"
   }
