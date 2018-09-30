@@ -1,14 +1,6 @@
 import { Directive, Input } from '@angular/core';
 import { BoneBase } from './base';
 
-export interface GridItemStyleProps {
-  justifySelf: string;
-  alignSelf: string;
-  gridArea?: string;
-  gridColumn?: string;
-  gridRow?: string;
-}
-
 @Directive({
   selector: '[bon-gi]'
 })
@@ -89,35 +81,14 @@ export class BoneGridItem extends BoneBase {
   @Input('bon-gi-align-xl')
   public alignXl: string;
 
-  private currentStyles: GridItemStyleProps = null;
-
   public getStyles(): { [key: string]: any } {
-    const newStyles: GridItemStyleProps = {
+    return {
       justifySelf: this.getValue([this.justifyXl, this.justifyLg, this.justifyMd, this.justifySm, this.justify]),
       alignSelf: this.getValue([this.alignXl, this.alignLg, this.alignMd, this.alignSm, this.align]),
       gridArea: this.getAreaInfo(),
       gridColumn: this.getCol(),
       gridRow: this.getRow()
     };
-
-    if (this.currentStyles === null) {
-      const hasValue = Object.values(newStyles).filter(newStyle => !!newStyle).length > 0;
-      this.currentStyles = hasValue ? newStyles : null;
-      return this.currentStyles;
-    } else if (this.currentStyles.justifySelf !== newStyles.justifySelf ||
-      this.currentStyles.alignSelf !== newStyles.alignSelf ||
-      this.currentStyles.gridArea !== newStyles.gridArea ||
-      this.currentStyles.gridColumn !== newStyles.gridColumn ||
-      this.currentStyles.gridRow !== newStyles.gridRow) {
-      this.currentStyles = newStyles;
-      return this.currentStyles;
-    }
-
-    return null;
-  }
-
-  public getStylePropNames(): Array<string> {
-    return Object.keys(this.currentStyles || {});
   }
 
   private getCol(): string {

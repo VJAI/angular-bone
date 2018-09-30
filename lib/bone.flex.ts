@@ -1,15 +1,6 @@
 import { Directive, Input } from '@angular/core';
 import { BoneBase } from './base';
 
-export interface FlexContainerStyleProps {
-  display: string;
-  flexDirection: string;
-  flexWrap: string;
-  justifyContent: string;
-  alignItems: string;
-  alignContent: string;
-}
-
 @Directive({
   selector: '[bon-f]'
 })
@@ -145,37 +136,21 @@ export class BoneFlex extends BoneBase {
   @Input('bon-f-align-content-xl')
   public alignContentXl: string;
 
-  private currentStyles: FlexContainerStyleProps = null;
-
   public getStyles(): { [key: string]: any } {
-    const newStyles = {
-      display: this.getValue([this.displayXl, this.displayLg, this.displayMd, this.displaySm, this.display]),
-      flexDirection: this.getValue([this.directionXl, this.directionLg, this.directionMd, this.directionSm, this.direction]),
-      flexWrap: this.getValue([this.wrapXl, this.wrapLg, this.wrapMd, this.wrapSm, this.wrap]),
-      justifyContent: this.getValue([this.justifyContentXl, this.justifyContentLg,
-        this.justifyContentMd, this.justifyContentSm, this.justifyContent]),
-      alignItems: this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignItems]),
-      alignContent: this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignContent])
-    };
+    const display = this.getValue([this.displayXl, this.displayLg, this.displayMd, this.displaySm, this.display]);
 
-    if (this.currentStyles === null) {
-      const hasValue = Object.values(newStyles).filter(newStyle => !!newStyle).length > 0;
-      this.currentStyles = hasValue ? newStyles : null;
-      return this.currentStyles;
-    } else if (this.currentStyles.display !== newStyles.display ||
-      this.currentStyles.flexDirection !== newStyles.flexDirection ||
-      this.currentStyles.flexWrap !== newStyles.flexWrap ||
-      this.currentStyles.justifyContent !== newStyles.justifyContent ||
-      this.currentStyles.alignItems !== newStyles.alignItems ||
-      this.currentStyles.alignContent !== newStyles.alignContent) {
-      this.currentStyles = newStyles;
-      return this.currentStyles;
+    if (display === 'flex' || display === 'inline-flex') {
+      return {
+        display: this.getValue([this.displayXl, this.displayLg, this.displayMd, this.displaySm, this.display]),
+        flexDirection: this.getValue([this.directionXl, this.directionLg, this.directionMd, this.directionSm, this.direction]),
+        flexWrap: this.getValue([this.wrapXl, this.wrapLg, this.wrapMd, this.wrapSm, this.wrap]),
+        justifyContent: this.getValue([this.justifyContentXl, this.justifyContentLg,
+          this.justifyContentMd, this.justifyContentSm, this.justifyContent]),
+        alignItems: this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignItems]),
+        alignContent: this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignContent])
+      };
     }
 
     return null;
-  }
-
-  public getStylePropNames(): Array<string> {
-    return Object.keys(this.currentStyles || {});
   }
 }

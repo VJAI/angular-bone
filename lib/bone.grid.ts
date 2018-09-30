@@ -1,20 +1,6 @@
 import { Directive, Input } from '@angular/core';
 import { BoneBase } from './base';
 
-export interface GridContainerStyleProps {
-  display: string;
-  gridTemplateColumns: string;
-  gridTemplateRows: string;
-  gridTemplateAreas: string;
-  gridAutoColumns: string;
-  gridAutoRows: string;
-  gridGap: string;
-  justifyItems: string;
-  alignItems: string;
-  justifyContent: string;
-  alignContent: string;
-}
-
 @Directive({
   selector: '[bon-g]'
 })
@@ -240,10 +226,8 @@ export class BoneGrid extends BoneBase {
   @Input('bon-g-align-content-xl')
   public alignContentXl: string;
 
-  private currentStyles: GridContainerStyleProps = null;
-
   public getStyles(): { [key: string]: any } {
-    const newStyles = {
+    return {
       display: this.getValue([this.displayXl, this.displayLg, this.displayMd, this.displaySm, this.display]),
       gridTemplateColumns: this.getCols(),
       gridTemplateRows: this.getRows(),
@@ -257,32 +241,6 @@ export class BoneGrid extends BoneBase {
         this.justifyContentSm, this.justifyContent]),
       alignContent: this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignContent])
     };
-
-    if (this.currentStyles === null) {
-      const hasValue = Object.values(newStyles).filter(newStyle => !!newStyle).length > 0;
-      this.currentStyles = hasValue ? newStyles : null;
-      return this.currentStyles;
-    } else if (this.currentStyles.display !== newStyles.display ||
-      this.currentStyles.gridTemplateColumns !== newStyles.gridTemplateColumns ||
-      this.currentStyles.gridTemplateRows !== newStyles.gridTemplateRows ||
-      this.currentStyles.gridTemplateAreas !== newStyles.gridTemplateAreas ||
-      this.currentStyles.gridAutoColumns !== newStyles.gridAutoColumns ||
-      this.currentStyles.gridAutoRows !== newStyles.gridAutoRows ||
-      this.currentStyles.gridGap !== newStyles.gridGap ||
-      this.currentStyles.justifyItems !== newStyles.justifyItems ||
-      this.currentStyles.alignItems !== newStyles.alignItems ||
-      this.currentStyles.justifyContent !== newStyles.justifyContent ||
-      this.currentStyles.alignContent !== newStyles.alignContent
-    ) {
-      this.currentStyles = newStyles;
-      return this.currentStyles;
-    }
-
-    return null;
-  }
-
-  public getStylePropNames(): Array<string> {
-    return Object.keys(this.currentStyles || {});
   }
 
   private getCols(): string {

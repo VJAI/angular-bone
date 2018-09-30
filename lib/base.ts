@@ -17,6 +17,8 @@ export abstract class BoneBase implements OnChanges, OnDestroy {
 
   protected mediaWatcherUnSubscribeFunction: () => void;
 
+  protected currentStyles: any = null;
+
   constructor(@Inject(ElementRef) protected el: ElementRef, @Inject(MediaSizeWatcher) protected watcher: MediaSizeWatcher) {
     this.breakpoint = this.watcher.getCurrentMedia();
     this.mediaWatcherUnSubscribeFunction = this.watcher.watch((breakpoint: Breakpoint) => {
@@ -36,28 +38,31 @@ export abstract class BoneBase implements OnChanges, OnDestroy {
 
   public ngOnDestroy() {
     this.mediaWatcherUnSubscribeFunction();
-    this.getStylePropNames().forEach(style => {
-      this.el.nativeElement.style.removeProperty(this.toKebab(style));
-    });
+    this.currentStyles && Object.keys(this.currentStyles).forEach(style => this.el.nativeElement.style.removeProperty(this.toKebab(style)));
   }
 
   public applyLayout(): void {
-    const styles = this.getStyles();
+    const stylesToApply = {}, stylesToRemove = [], styles = this.getStyles();
 
-    if (!styles) {
-      return;
+    if (styles === null && this.currentStyles !== null) {
+      Object.keys(this.currentStyles).forEach(style => this.currentStyles[style] && (stylesToRemove.push(style)));
+    } else {
+      Object.keys(styles).forEach(style => {
+        if (styles[style] && (this.currentStyles === null || !this.currentStyles.hasOwnProperty(style))) {
+          stylesToApply[style] = styles[style];
+        } else if (!styles[style] && (this.currentStyles !== null && this.currentStyles.hasOwnProperty(style))) {
+          stylesToRemove.push(style);
+        }
+      });
     }
 
-    Object.keys(styles).filter(style => !styles[style])
-      .forEach(style => this.el.nativeElement.style.removeProperty(this.toKebab(style)));
+    Object.keys(stylesToApply).forEach(style => this.el.nativeElement.style.setProperty(this.toKebab(style), styles[style]));
+    stylesToRemove.forEach(style => this.el.nativeElement.style.removeProperty(this.toKebab(style)));
 
-    Object.keys(styles).filter(style => !!styles[style])
-      .forEach(style => this.el.nativeElement.style.setProperty(this.toKebab(style), styles[style]));
+    this.currentStyles = stylesToApply;
   }
 
   public abstract getStyles(): { [key: string]: any };
-
-  public abstract getStylePropNames(): Array<string>;
 
   public destroy(): void {
     this.ngOnDestroy();
