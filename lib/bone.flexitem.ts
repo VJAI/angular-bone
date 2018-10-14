@@ -1,4 +1,4 @@
-import { Directive, Input } from '@angular/core';
+import { Directive, HostBinding, Input } from '@angular/core';
 import { BoneBase } from './base';
 
 @Directive({
@@ -81,13 +81,30 @@ export class BoneFlexItem extends BoneBase {
   @Input('bon-fi-align-xl')
   public alignXl: string;
 
-  public getStyles(): { [key: string]: any } {
-    return {
-      flexOrder: this.getValue([this.orderXl, this.orderLg, this.orderMd, this.orderSm, this.order]),
-      flexGrow: this.getValue([this.growXl, this.growLg, this.growMd, this.growSm, this.grow]),
-      flexShrink: this.getValue([this.shrinkXl, this.shrinkLg, this.shrinkMd, this.shrinkSm, this.shrink]),
-      flexBasis: this.getValue([this.basisXl, this.basisLg, this.basisMd, this.basisSm, this.basis]),
-      alignSelf: this.getValue([this.alignXl, this.alignLg, this.alignMd, this.alignSm, this.align])
-    };
+  @HostBinding('style.flexOrder')
+  public currentOrder: string;
+
+  @HostBinding('style.flexGrow')
+  public currentGrow: string;
+
+  @HostBinding('style.flexShrink')
+  public currentShrink: string;
+
+  @HostBinding('style.flexBasis')
+  public currentBasis: string;
+
+  @HostBinding('style.alignSelf')
+  public currentAlign: string;
+
+  public applyLayout(): void {
+    this.currentOrder = this.getValue([this.orderXl, this.orderLg, this.orderMd, this.orderSm, this.order]);
+    this.currentGrow = this.getValue([this.growXl, this.growLg, this.growMd, this.growSm, this.grow]);
+    this.currentShrink = this.getValue([this.shrinkXl, this.shrinkLg, this.shrinkMd, this.shrinkSm, this.shrink]);
+    this.currentBasis = this.getValue([this.basisXl, this.basisLg, this.basisMd, this.basisSm, this.basis]);
+    this.currentAlign = this.getValue([this.alignXl, this.alignLg, this.alignMd, this.alignSm, this.align]);
+  }
+
+  public removeLayout(): void {
+    this.currentOrder = this.currentGrow = this.currentShrink = this.currentBasis = this.currentAlign = null;
   }
 }

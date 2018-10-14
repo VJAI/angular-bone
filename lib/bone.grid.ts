@@ -1,5 +1,6 @@
-import { Directive, Input } from '@angular/core';
+import { Directive, HostBinding, Input } from '@angular/core';
 import { BoneBase } from './base';
+import { SafeStyle } from "@angular/platform-browser";
 
 @Directive({
   selector: '[bon-g]'
@@ -226,21 +227,62 @@ export class BoneGrid extends BoneBase {
   @Input('bon-g-align-content-xl')
   public alignContentXl: string;
 
-  public getStyles(): { [key: string]: any } {
-    return {
-      display: this.getValue([this.displayXl, this.displayLg, this.displayMd, this.displaySm, this.display]),
-      gridTemplateColumns: this.getCols(),
-      gridTemplateRows: this.getRows(),
-      gridTemplateAreas: this.getAreas(),
-      gridAutoColumns: this.getAutoCols(),
-      gridAutoRows: this.getAutoRows(),
-      gridGap: this.getGap(),
-      justifyItems: this.getValue([this.justifyItemsXl, this.justifyItemsLg, this.justifyItemsMd, this.justifyItemsSm, this.justifyItems]),
-      alignItems: this.getValue([this.alignItemsXl, this.alignItemsLg, this.alignItemsMd, this.alignItemsSm, this.alignItems]),
-      justifyContent: this.getValue([this.justifyContentXl, this.justifyContentLg, this.justifyContentMd,
-        this.justifyContentSm, this.justifyContent]),
-      alignContent: this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignContent])
-    };
+  @HostBinding('style.display')
+  public currentDisplay: string;
+
+  @HostBinding('style.gridTemplateColumns')
+  public currentColumns: SafeStyle;
+
+  @HostBinding('style.gridTemplateRows')
+  public currentRows: SafeStyle;
+
+  @HostBinding('style.gridTemplateAreas')
+  public currentArea: SafeStyle;
+
+  @HostBinding('style.gridAutoColumns')
+  public currentAutoCols: SafeStyle;
+
+  @HostBinding('style.gridAutoRows')
+  public currentAutoRows: SafeStyle;
+
+  @HostBinding('style.gridGap')
+  public currentGap: string;
+
+  @HostBinding('style.justifyItems')
+  public currentJustifyItems: string;
+
+  @HostBinding('style.alignItems')
+  public currentAlignItems: string;
+
+  @HostBinding('style.justifyContent')
+  public currentJustifyContent: string;
+
+  @HostBinding('style.alignContent')
+  public currentAlignContent: string;
+
+  public applyLayout(): void {
+    const display = this.getValue([this.displayXl, this.displayLg, this.displayMd, this.displaySm, this.display]);
+
+    if (display !== 'grid' && display !== 'inline-grid') {
+      this.removeLayout();
+      return;
+    }
+
+    this.currentDisplay = display;
+    this.currentColumns = this.sanitizer.bypassSecurityTrustStyle(this.getCols());
+    this.currentRows = this.sanitizer.bypassSecurityTrustStyle(this.getRows());
+    this.currentArea = this.sanitizer.bypassSecurityTrustStyle(this.getAreas());
+    this.currentAutoCols = this.sanitizer.bypassSecurityTrustStyle(this.getAutoCols());
+    this.currentAutoRows = this.sanitizer.bypassSecurityTrustStyle(this.getAutoRows());
+    this.currentGap = this.getGap();
+    this.currentJustifyItems = this.getValue([this.justifyItemsXl, this.justifyItemsLg, this.justifyItemsMd, this.justifyItemsSm, this.justifyItems]);
+    this.currentAlignItems = this.getValue([this.alignItemsXl, this.alignItemsLg, this.alignItemsMd, this.alignItemsSm, this.alignItems]);
+    this.currentJustifyContent = this.getValue([this.justifyContentXl, this.justifyContentLg, this.justifyContentMd, this.justifyContentSm, this.justifyContent]);
+    this.currentAlignContent = this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignContent]);
+  }
+
+  public removeLayout(): void {
+    this.currentDisplay = this.currentColumns = this.currentRows = this.currentAutoCols = this.currentAutoRows = this.currentAutoRows = this.currentGap = this.currentJustifyItems = this.currentAlignItems = this.currentJustifyContent = this.currentAlignContent = null;
   }
 
   private getCols(): string {

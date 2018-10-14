@@ -1,6 +1,7 @@
 import { ElementRef, EventEmitter, Inject, OnChanges, OnDestroy, Output } from '@angular/core';
 import { Breakpoint } from './breakpoint';
 import { MediaSizeWatcher } from './watcher';
+import { DomSanitizer } from "@angular/platform-browser";
 
 export interface BreakpointChangeHandlerArgs {
   breakpoint: Breakpoint;
@@ -17,9 +18,9 @@ export abstract class BoneBase implements OnChanges, OnDestroy {
 
   protected mediaWatcherUnSubscribeFunction: () => void;
 
-  protected currentStyles: any = null;
-
-  constructor(@Inject(ElementRef) protected el: ElementRef, @Inject(MediaSizeWatcher) protected watcher: MediaSizeWatcher) {
+  constructor(@Inject(ElementRef) protected el: ElementRef,
+              @Inject(MediaSizeWatcher) protected watcher: MediaSizeWatcher,
+              @Inject(DomSanitizer) protected sanitizer: DomSanitizer) {
     this.breakpoint = this.watcher.getCurrentMedia();
     this.mediaWatcherUnSubscribeFunction = this.watcher.watch((breakpoint: Breakpoint) => {
       this.breakpoint = breakpoint;
@@ -38,31 +39,8 @@ export abstract class BoneBase implements OnChanges, OnDestroy {
 
   public ngOnDestroy() {
     this.mediaWatcherUnSubscribeFunction();
-    this.currentStyles && Object.keys(this.currentStyles).forEach(style => this.el.nativeElement.style.removeProperty(this.toKebab(style)));
+    this.removeLayout();
   }
-
-  public applyLayout(): void {
-    const stylesToApply = {}, stylesToRemove = [], styles = this.getStyles();
-
-    if (styles === null && this.currentStyles !== null) {
-      Object.keys(this.currentStyles).forEach(style => this.currentStyles[style] && (stylesToRemove.push(style)));
-    } else {
-      Object.keys(styles).forEach(style => {
-        if (styles[style] && (this.currentStyles === null || !this.currentStyles.hasOwnProperty(style))) {
-          stylesToApply[style] = styles[style];
-        } else if (!styles[style] && (this.currentStyles !== null && this.currentStyles.hasOwnProperty(style))) {
-          stylesToRemove.push(style);
-        }
-      });
-    }
-
-    Object.keys(stylesToApply).forEach(style => this.el.nativeElement.style.setProperty(this.toKebab(style), styles[style]));
-    stylesToRemove.forEach(style => this.el.nativeElement.style.removeProperty(this.toKebab(style)));
-
-    this.currentStyles = stylesToApply;
-  }
-
-  public abstract getStyles(): { [key: string]: any };
 
   public destroy(): void {
     this.ngOnDestroy();
@@ -76,7 +54,7 @@ export abstract class BoneBase implements OnChanges, OnDestroy {
     return !isNaN(num as number);
   }
 
-  public toKebab(str: string): string {
-    return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-  }
+  public abstract applyLayout(): void;
+
+  public abstract removeLayout(): void;
 }

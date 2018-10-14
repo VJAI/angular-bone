@@ -1,4 +1,4 @@
-import { Directive, Input } from '@angular/core';
+import { Directive, HostBinding, Input } from '@angular/core';
 import { BoneBase } from './base';
 
 @Directive({
@@ -81,14 +81,38 @@ export class BoneGridItem extends BoneBase {
   @Input('bon-gi-align-xl')
   public alignXl: string;
 
-  public getStyles(): { [key: string]: any } {
-    return {
-      justifySelf: this.getValue([this.justifyXl, this.justifyLg, this.justifyMd, this.justifySm, this.justify]),
-      alignSelf: this.getValue([this.alignXl, this.alignLg, this.alignMd, this.alignSm, this.align]),
-      gridArea: this.getAreaInfo(),
-      gridColumn: this.getCol(),
-      gridRow: this.getRow()
-    };
+  @HostBinding('style.justifySelf')
+  public currentJustifySelf: string;
+
+  @HostBinding('style.alignSelf')
+  public currentAlignSelf: string;
+
+  public applyLayout(): void {
+    const area = this.getAreaInfo(),
+      col = this.getCol(),
+      row = this.getRow(),
+      style = this.el.nativeElement.style;
+
+    if (area) {
+      style.removeProperty('grid-column');
+      style.removeProperty('grid-row');
+      style.setProperty('grid-area', area);
+    } else {
+      style.removeProperty('grid-area');
+      style.setProperty('grid-column', col);
+      style.setProperty('grid-row', row);
+    }
+
+    this.currentJustifySelf = this.getValue([this.justifyXl, this.justifyLg, this.justifyMd, this.justifySm, this.justify]);
+    this.currentAlignSelf = this.getValue([this.alignXl, this.alignLg, this.alignMd, this.alignSm, this.align]);
+  }
+
+  public removeLayout(): void {
+    const style = this.el.nativeElement.style;
+    style.removeProperty('grid-area');
+    style.removeProperty('grid-column');
+    style.removeProperty('grid-row');
+    this.currentJustifySelf = this.currentAlignSelf = null;
   }
 
   private getCol(): string {

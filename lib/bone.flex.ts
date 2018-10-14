@@ -1,4 +1,4 @@
-import { Directive, Input } from '@angular/core';
+import { Directive, HostBinding, Input } from '@angular/core';
 import { BoneBase } from './base';
 
 @Directive({
@@ -136,21 +136,41 @@ export class BoneFlex extends BoneBase {
   @Input('bon-f-align-content-xl')
   public alignContentXl: string;
 
-  public getStyles(): { [key: string]: any } {
+  @HostBinding('style.display')
+  public currentDisplay: string;
+
+  @HostBinding('style.flexDirection')
+  public currentDirection: string;
+
+  @HostBinding('style.flexWrap')
+  public currentWrap: string;
+
+  @HostBinding('style.justifyContent')
+  public currentJustifyContent: string;
+
+  @HostBinding('style.alignItems')
+  public currentAlignItems: string;
+
+  @HostBinding('style.alignContent')
+  public currentAlignContent: string;
+
+  public applyLayout(): void {
     const display = this.getValue([this.displayXl, this.displayLg, this.displayMd, this.displaySm, this.display]);
 
-    if (display === 'flex' || display === 'inline-flex') {
-      return {
-        display: this.getValue([this.displayXl, this.displayLg, this.displayMd, this.displaySm, this.display]),
-        flexDirection: this.getValue([this.directionXl, this.directionLg, this.directionMd, this.directionSm, this.direction]),
-        flexWrap: this.getValue([this.wrapXl, this.wrapLg, this.wrapMd, this.wrapSm, this.wrap]),
-        justifyContent: this.getValue([this.justifyContentXl, this.justifyContentLg,
-          this.justifyContentMd, this.justifyContentSm, this.justifyContent]),
-        alignItems: this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignItems]),
-        alignContent: this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignContent])
-      };
+    if (display !== 'flex' && display !== 'inline-flex') {
+      this.removeLayout();
+      return;
     }
 
-    return null;
+    this.currentDisplay = display;
+    this.currentDirection = this.getValue([this.directionXl, this.directionLg, this.directionMd, this.directionSm, this.direction]);
+    this.currentWrap = this.getValue([this.wrapXl, this.wrapLg, this.wrapMd, this.wrapSm, this.wrap]);
+    this.currentJustifyContent = this.getValue([this.justifyContentXl, this.justifyContentLg, this.justifyContentMd, this.justifyContentSm, this.justifyContent]);
+    this.currentAlignItems = this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignItems]);
+    this.currentAlignContent = this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignContent]);
+  }
+
+  public removeLayout(): void {
+    this.currentDisplay = this.currentDirection = this.currentWrap = this.currentJustifyContent = this.currentAlignItems = this.currentAlignContent = null;
   }
 }
