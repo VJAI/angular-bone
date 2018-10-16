@@ -166,7 +166,7 @@ export class BoneFlex extends BoneBase {
     this.currentDirection = this.getValue([this.directionXl, this.directionLg, this.directionMd, this.directionSm, this.direction]);
     this.currentWrap = this.getValue([this.wrapXl, this.wrapLg, this.wrapMd, this.wrapSm, this.wrap]);
     this.currentJustifyContent = this.getValue([this.justifyContentXl, this.justifyContentLg, this.justifyContentMd, this.justifyContentSm, this.justifyContent]);
-    this.currentAlignItems = this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignItems]);
+    this.currentAlignItems = this.getValue([this.alignItemsXl, this.alignItemsLg, this.alignItemsMd, this.alignItemsSm, this.alignItems]);
     this.currentAlignContent = this.getValue([this.alignContentXl, this.alignContentLg, this.alignContentMd, this.alignContentSm, this.alignContent]);
   }
 

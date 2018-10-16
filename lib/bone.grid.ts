@@ -282,7 +282,9 @@ export class BoneGrid extends BoneBase {
   }
 
   public removeLayout(): void {
-    this.currentDisplay = this.currentColumns = this.currentRows = this.currentAutoCols = this.currentAutoRows = this.currentAutoRows = this.currentGap = this.currentJustifyItems = this.currentAlignItems = this.currentJustifyContent = this.currentAlignContent = null;
+    this.currentDisplay = this.currentColumns = this.currentRows = this.currentArea =
+      this.currentAutoCols = this.currentAutoRows = this.currentGap = this.currentJustifyItems =
+        this.currentAlignItems = this.currentJustifyContent = this.currentAlignContent = null;
   }
 
   private getCols(): string {
