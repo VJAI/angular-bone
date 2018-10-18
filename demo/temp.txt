@@ -1,6 +1,0 @@
-&lt;div id="simple-grid-example" class="canvas" bon-grid bon-grid-cols="30% 1fr" bon-grid-rows="20% 1fr 10%" bon-grid-area="'a a' 'b c' 'd d'"&gt;
-  &lt;div class="purple" bon-grid-item bon-grid-item-area="a"&gt;&lt;/div&gt;
-  &lt;div class="yellow" bon-grid-item bon-grid-item-area="b"&gt;&lt;/div&gt;
-  &lt;div class="green" bon-grid-item bon-grid-item-area="c"&gt;&lt;/div&gt;
-  &lt;div class="pink" bon-grid-item bon-grid-item-area="d"&gt;&lt;/div&gt;
-  &lt;/div&gt;
