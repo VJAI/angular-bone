@@ -9,6 +9,7 @@ html, body {
   font-family: 'PT Sans Caption', sans-serif;
   background-color: #f9fbfc;
   color: #666;
+  overflow: hidden;
 
   h2, h3 {
     text-transform: capitalize;
@@ -79,4 +80,10 @@ html, body {
 
 :root {
   font-size: 14px;
+}
+
+@media screen and (max-width: 767px) {
+  html, body {
+    overflow: auto;
+  }
 }

@@ -1,28 +1,18 @@
 import {
-  AfterViewInit,
   Component,
-  ElementRef,
-  HostListener,
   Inject,
-  NgModule,
-  OnDestroy,
-  ViewChild
+  NgModule
 } from '@angular/core';
 import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import 'zone.js/dist/zone';
-import { BoneModule, MediaSizeWatcher, Breakpoint } from 'angular-bone';
+import { BoneModule } from 'angular-bone';
 
 @Component({
   selector: 'demo-root',
   templateUrl: './demo.html',
   styleUrls: ['./demo.scss']
 })
-export class DemoComponent implements AfterViewInit, OnDestroy {
-
-  public title = 'angular-bone';
-
-  @ViewChild('aside')
-  public aside: ElementRef;
+export class DemoComponent {
 
   public isSticky: boolean;
 
@@ -30,21 +20,7 @@ export class DemoComponent implements AfterViewInit, OnDestroy {
 
   public code2: SafeHtml;
 
-  private initialOffset: number;
-
-  private mediaWatcherUnSubscribeFunction: () => void;
-
-  private breakpoint: Breakpoint;
-
-  constructor(@Inject(MediaSizeWatcher) private watcher: MediaSizeWatcher, @Inject(DomSanitizer) private sanitized: DomSanitizer) {
-    this.breakpoint = this.watcher.getCurrentMedia();
-    this.setAside();
-
-    this.mediaWatcherUnSubscribeFunction = this.watcher.watch((breakpoint: Breakpoint) => {
-      this.breakpoint = breakpoint;
-      this.setAside();
-    });
-
+  constructor(@Inject(DomSanitizer) private sanitized: DomSanitizer) {
     this.code1 = this.sanitized.bypassSecurityTrustHtml(
       `&lt;div <strong>bon-g
      bon-g-cols="30% 1fr"
@@ -72,27 +48,6 @@ public class TestComponent implements OnDestroy {
     this.mediaWatcherUnSubscribeFunction();
   }
 }`);
-  }
-
-  @HostListener('window:scroll', [])
-  setAside() {
-    if (!this.aside) {
-      return;
-    }
-
-    if ([Breakpoint.Medium, Breakpoint.Large, Breakpoint.ExtraLarge].indexOf(this.breakpoint) > -1) {
-      this.isSticky = window.pageYOffset >= this.initialOffset;
-    } else {
-      this.isSticky = false;
-    }
-  }
-
-  ngAfterViewInit() {
-    this.initialOffset = this.aside.nativeElement.offsetTop;
-  }
-
-  ngOnDestroy() {
-    this.mediaWatcherUnSubscribeFunction && this.mediaWatcherUnSubscribeFunction();
   }
 }
 

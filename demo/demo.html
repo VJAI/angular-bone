@@ -2,19 +2,14 @@
      bon-g
      bon-g-cols="1"
      bon-g-cols-md="25% 1fr"
-     bon-g-rows="12.5rem auto 1fr"
-     bon-g-rows-md="12.5rem 1fr"
+     bon-g-rows="4rem auto 1fr"
+     bon-g-rows-md="4rem 1fr"
      bon-g-area="'h' 'a' 'm'"
      bon-g-area-md="'h h' 'a m'">
 
-  <header bon-gi bon-gi-area="h">
-    <div bon-f bon-f-align-items="center">
-      <div bon-fi bon-fi-grow="1">
-        <h1 class="logo">angular<img src="assets/bone.png" />bone</h1>
-        <p>Provides structure to your angular apps using CSS3 Grid and Flex</p>
-      </div>
-      <a class="github" bon-fi bon-fi-align="flex-start" target="_blank" href="https://github.com/vjai/angular-bone">GITHUB</a>
-    </div>
+  <header bon-gi bon-gi-area="h" bon-f bon-f-align-items="center">
+    <h1 class="logo" bon-fi bon-fi-grow="1">angular<img src="assets/bone.png" width="30"/>bone</h1>
+    <a class="github" bon-fi bon-fi-align="flex-start" target="_blank" href="https://github.com/vjai/angular-bone">GITHUB</a>
   </header>
 
   <aside #aside [class.sticky]="isSticky" bon-gi bon-gi-area="a">
